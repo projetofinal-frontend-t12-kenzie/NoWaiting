@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import cliente from "../../images/backGroundSelectClient.jpg";
 import restaurante from "../../images/backGroundRestLogin.jpg";
+
 export const Geral = styled.div`
   display: flex;
   flex-direction: row;
@@ -15,11 +16,13 @@ export const Geral = styled.div`
     min-height: 100vh;
   }
 `;
+
 export const Restaurante = styled.div`
   background-image: url(${restaurante});
   background-size: cover;
   background-position: center;
   width: 100%;
+
   @media (max-width: 426px) {
     min-height: 50vh;
   }
@@ -29,6 +32,7 @@ export const Restaurante = styled.div`
   button {
     border: none;
     cursor: pointer;
+    font-family: "Roboto";
     font-size: 70px;
     color: #ffffff;
     background-color: transparent;
@@ -38,9 +42,10 @@ export const Restaurante = styled.div`
     }
   }
   button:hover {
-    color: orange;
+    color: #FA7B12;
   }
 `;
+
 export const Cliente = styled.div`
   background-image: url(${cliente});
   background-size: cover;
@@ -56,6 +61,7 @@ export const Cliente = styled.div`
   button {
     border: none;
     cursor: pointer;
+    font-family: "Roboto";
     font-size: 70px;
     color: #ffffff;
     background-color: transparent;
@@ -65,6 +71,6 @@ export const Cliente = styled.div`
     }
   }
   button:hover {
-    color: orange;
+    color: #FA7B12;
   }
 `;

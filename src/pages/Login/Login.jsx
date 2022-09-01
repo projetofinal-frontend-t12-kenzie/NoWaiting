@@ -5,13 +5,23 @@ import {
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useState } from "react";
+import { EyeFilled, EyeInvisibleFilled } from "@ant-design/icons";
+
+function Login() {
+
+const [type, setType] = useState("password");
 
 const schema = yup.object({
   email: yup.string().email().required("Campo obrigatório"),
-  password: yup.string().required("Campo obrigatório"),
+  password: yup.string()
+  .matches(
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\.*])(?=.{8,})/,
+    "A senha deve conter no mínimo 8 caraceteres, uma maiúscula, uma minúscula, um número e um caracter especial"
+  )
+  .required("Campo obrigatório"),
 });
 
-function Login() {
   const {
     handleSubmit,
     register,
@@ -32,30 +42,35 @@ function Login() {
     <LoginContainer>
       <div>
         <LoginForm onSubmit={handleSubmit(handleLogin)}>
-          <h2>LOGIN</h2>
+          <h2>Login</h2>
           <input
             type="text"
-            placeholder="email"
+            placeholder="E-mail"
             id="email"
             {...register("email")}
           />
-          <span>{errors.email?.message}</span>
+          {errors.email && <span>{errors.email.message}</span>}
 
           <input
-            type="password"
-            placeholder="senha"
+            type={type}
+            placeholder="Senha"
             id="password"
             {...register("password")}
           />
-          <span>{errors.password?.message}</span>
+          {type === "password" ? (
+          <EyeFilled onClick={() => setType("text")} />
+          ) : (
+            <EyeInvisibleFilled onClick={() => setType("password")} />
+          )}
+         {errors.password && <span>{errors.password.message}</span>}
 
           <button className="btnSingIn">Entrar</button>
-          <span>
+          <p>
             Ainda não possui cadastro?
             <button type="submit" className="btnSingUp">
               <strong>Cadastre-se aqui!</strong>
             </button>
-          </span>
+          </p>
         </LoginForm>
       </div>
     </LoginContainer>

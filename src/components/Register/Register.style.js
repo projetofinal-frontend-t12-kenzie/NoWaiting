@@ -19,33 +19,46 @@ export const RegisterForm = styled.form`
   background-color: rgba(255, 255, 255, 0.4);
   padding: 20px;
   border-radius: 20px;
-  width: 312px;
+  width: 310px;
 
   h2 {
+    font-family: "Roboto";
     display: flex;
     justify-content: center;
     padding: 20px;
     color: rgba(0, 0, 0, 1);
+    font-size: 30px;
+    font-weight: bold;
   }
 
   input {
-    height: 56px;
+    font-family: "Roboto";
     width: 90%;
     border: none;
     border-radius: 10px;
-    margin-bottom: 30px;
-    padding-left: 20px;
+    padding: 10px;
     background-color: rgba(255, 255, 255, 1);
     color: rgba(0, 0, 0, 1);
+    outline: none;
+    margin: 10px;
+  }
+
+  span{
+    font-family: "Roboto";
+    color: red;
+    margin: 10px;
+    font-size: 14px;
+    font-weight: bold;
   }
 
   .btnRegister {
+    margin: 10px;
+    font-family: "Roboto";
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 52px;
+    padding: 15px;
     width: 50%;
-    margin-bottom: 30px;
     border: none;
     border-radius: 10px;
     cursor: pointer;

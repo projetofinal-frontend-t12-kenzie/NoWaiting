@@ -9,6 +9,7 @@ export const LoginContainer = styled.div`
   background-image: url(${BackGroundLogin});
   background-size: cover;
   background-position: center;
+  min-height: 100vh;
 `;
 
 export const LoginForm = styled.form`
@@ -19,33 +20,51 @@ export const LoginForm = styled.form`
   background-color: rgba(255, 255, 255, 0.4);
   padding: 20px;
   border-radius: 20px;
-  width: 90%;
+  width: 310px;
 
   h2 {
+    font-family: "Roboto";
     display: flex;
     justify-content: center;
     padding: 20px;
     color: rgba(0, 0, 0, 1);
+    font-size: 30px;
+    font-weight: bold;
   }
 
   input {
-    height: 56px;
+    font-family: "Roboto";
     width: 90%;
+    padding: 10px;
     border: none;
     border-radius: 10px;
-    margin-bottom: 50px;
-    padding-left: 20px;
     background-color: rgba(255, 255, 255, 1);
     color: rgba(0, 0, 0, 1);
+    outline: none;
+    margin: 10px;
+  }
+
+  .anticon{
+        position: absolute;
+        margin: 6vh -18vw 0 -2vw;
+        color: #000000
+    }
+
+  span{
+    font-family: "Roboto";
+    color: red;
+    margin: 10px;
+    font-size: 14px;
+    font-weight: bold;
   }
 
   .btnSingIn {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 52px;
     width: 50%;
-    margin-bottom: 30px;
+    padding: 15px;
+    margin-bottom: 20px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -58,11 +77,6 @@ export const LoginForm = styled.form`
     background-color: #ffa75e;
   }
 
-  span {
-    margin-bottom: 20px;
-    color: #313131;
-  }
-
   .btnSingUp {
     border: none;
     background-color: transparent;
@@ -70,5 +84,20 @@ export const LoginForm = styled.form`
     font-weight: bolder;
     text-decoration: underline #fa7b12;
     color: #141414;
+  }
+
+  p{
+    font-family: "Roboto";
+    font-size: 14px;
+  }
+
+  strong{
+    font-family: "Roboto";
+    font-size: 14px;
+    color: #fa7b12;
+  }
+
+  strong:hover{
+    color: #ffa75e;
   }
 `;

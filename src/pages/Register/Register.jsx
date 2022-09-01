@@ -6,23 +6,29 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-const schema = yup.object({
-  name: yup.string().required("Campo obrigatório"),
-  email: yup.string().email().required("Campo obrigatório"),
-  password: yup
+function Register() {
+  const schema = yup.object().shape({
+    name: yup.string().required("Campo obrigatório"),
+    email: yup.string().email().required("Campo obrigatório"),
+    password: yup
     .string()
-    .min(8)
     .matches(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\.*])(?=.{8,})/,
       "A senha deve conter 8 caraceteres, uma maiúscula, uma minúscula, um número e um caracter especial"
     )
+    .min(8)
     .required("Campo obrigatório"),
-  confirmPassword: yup.string().oneOf([yup.ref("password")]),
-  contact: yup.string().required("Campo obrigatório"),
-  img: yup.string().required("Campo obrigatório"),
-});
+    
+    passwordConfirm: yup
+      .string()
+      .oneOf([yup.ref("password")], "Senhas não conferem")
+      .required("Campo obrigatório"),
 
-function Register() {
+    contact: yup.string().required("Campo obrigatório"),
+
+    img: yup.string().required("Campo obrigatório"),
+  });
+
   const {
     handleSubmit,
     register,
@@ -43,53 +49,54 @@ function Register() {
     <RegisterContainer>
       <RegisterForm onSubmit={handleSubmit(handleRegister)}>
         <button className="btnCloseRegister">X</button>
-        <h2>NoWaiting</h2>
+        <h2>Cadastre-se</h2>
         <input
           type="text"
-          placeholder="nome do restaurante"
+          placeholder="Nome do restaurante"
           id="name"
           {...register("name")}
         />
-        <span>{errors.name?.message}</span>
+        {errors.name && <span>{errors.name.message}</span>}
 
         <input
           type="text"
-          placeholder="email"
+          placeholder="E-mail"
           id="email"
           {...register("email")}
         />
-        <span>{errors.email?.message}</span>
+        {errors.email && <span>{errors.email.message}</span>}
 
         <input
           type="password"
-          placeholder="senha"
+          placeholder="Senha"
           id="password"
           {...register("password")}
         />
-        <span>{errors.password?.message}</span>
+        {errors.password && <span>{errors.password.message}</span>}
 
         <input
           type="password"
-          placeholder="confirmação da senha"
-          id="passwordConfirmation"
+          placeholder="Confirmação da senha"
+          id="passwordConfirm"
+          {...register("passwordConfirm")}
         />
-        <span>{errors.passwordConfirmation?.message}</span>
+        {errors.passwordConfirm && <span>{errors.passwordConfirm.message}</span>}
 
         <input
           type="text"
-          placeholder="contato"
+          placeholder="Contato"
           id="contact"
           {...register("contact")}
         />
-        <span>{errors.contact?.message}</span>
+        {errors.contact && <span>{errors.contact.message}</span>}
 
         <input
           type="text"
-          placeholder="link de imagem do perfil"
+          placeholder="Link de imagem do perfil"
           id="img"
           {...register("img")}
         />
-        <span>{errors.img?.message}</span>
+        {errors.img && <span>{errors.img.message}</span>}
 
         <button type="submit" className="btnRegister">
           Cadastrar
