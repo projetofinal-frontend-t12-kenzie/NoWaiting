@@ -7,7 +7,7 @@ const BoxPesquisa = () => {
     <Pesquisa>
       <div className="inputPesquisa">
         <button>
-          <BiSearchAlt size={20} />
+          <BiSearchAlt size={25} />
         </button>
         <input type="text" placeholder="Pesquise aqui..." />
       </div>

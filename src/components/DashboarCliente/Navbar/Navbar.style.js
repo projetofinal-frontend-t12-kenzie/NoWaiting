@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const ContainerNavbar = styled.div`
   width: 100%;
-  max-height: 110px;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -22,6 +21,16 @@ export const ContainerNavbar = styled.div`
 
     @media screen and (min-width: 750px) {
       justify-content: space-evenly;
+    }
+
+    @media screen and (min-width: 1000px) {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    @media screen and (min-width: 1400px) {
+      width: 80%;
+      justify-content: space-between;
     }
   }
 

@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Pesquisa = styled.div`
   height: 70px;
   width: 100%;
+  display: block;
   display: flex;
 
   flex-direction: row;
@@ -15,9 +16,14 @@ export const Pesquisa = styled.div`
 
   background-color: #fa7b12;
 
-  /* @media screen and (min-width: 750px) {
+  @media screen and (min-width: 750px) {
+    top: 31.2rem;
+  }
+
+  @media screen and (min-width: 1000px) {
     top: 43.1rem;
-  } */
+    display: none;
+  }
 
   button {
     background-color: transparent;
