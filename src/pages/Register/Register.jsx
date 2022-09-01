@@ -5,8 +5,6 @@ import {
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-
-import { api } from "../../services/api.jsx";
 import { Link } from "react-router-dom";
 
 const schema = yup.object({
@@ -14,7 +12,7 @@ const schema = yup.object({
   email: yup.string().email().required("Campo obrigatório"),
   password: yup
     .string()
-    .min(6)
+    .min(8)
     .matches(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\.*])(?=.{8,})/,
       "A senha deve conter 8 caraceteres, uma maiúscula, uma minúscula, um número e um caracter especial"
@@ -35,11 +33,11 @@ function Register() {
   });
 
   function handleRegister(data) {
-    console.log(data);
-    /*  try{
-    api.post("/register", data).then((_) => navigation("/login") )}
-    catch(err) {console.log(err)}
-  */
+    try {
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
