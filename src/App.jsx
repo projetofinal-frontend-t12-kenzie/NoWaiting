@@ -6,9 +6,9 @@ import SelectPage from "./pages/SelectPage/SelectPage";
 function App() {
   return (
     <div className="App">
-      <SelectPage />
+      {/* <SelectPage /> */}
       {/* <Login /> */}
-      {/* <Register /> */}
+      <Register />
     </div>
   );
 }
