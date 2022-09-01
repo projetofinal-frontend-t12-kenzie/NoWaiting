@@ -5,7 +5,6 @@ import {
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { Link } from "react-router-dom";
 
 const schema = yup.object({
   name: yup.string().required("Campo obrigatório"),
@@ -43,9 +42,7 @@ function Register() {
   return (
     <RegisterContainer>
       <RegisterForm onSubmit={handleSubmit(handleRegister)}>
-        <Link /* to="/login" */>
-          <button className="btnCloseRegister">X</button>
-        </Link>
+        <button className="btnCloseRegister">X</button>
         <h2>NoWaiting</h2>
         <input
           type="text"
@@ -64,7 +61,7 @@ function Register() {
         <span>{errors.email?.message}</span>
 
         <input
-          type="text"
+          type="password"
           placeholder="senha"
           id="password"
           {...register("password")}
@@ -72,7 +69,7 @@ function Register() {
         <span>{errors.password?.message}</span>
 
         <input
-          type="text"
+          type="password"
           placeholder="confirmação da senha"
           id="passwordConfirmation"
         />
