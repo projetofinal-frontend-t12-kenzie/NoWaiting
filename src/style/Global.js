@@ -11,59 +11,55 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;
+    display: block;
 }
 body {
-	line-height: 1;
+    line-height: 1;
 }
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 blockquote, q {
-	quotes: none;
+    quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+    content: '';
+    content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
-
 -webkit-tap-highlight-color: transparent;
-
 a:-webkit-any-link {
     color: none;
     text-decoration: none;
 }
-
 :root{
-    --color-primary: #ff577f;
-    --color-primary-focused: #FF427F;
-    --color-primary-negative: #59323F;
-    --grey-4: #121214;
-    --grey-3: #212529;
-    --grey-2: #343B41;
-    --grey-1: #868E96;
-    --grey-0: #F8F9FA;
-    --success: #3FE864;
-    --negative: #E83F5B;
+    --color-primary: #FA7B12;
+    --color-primary-focused:#FFA75E;
+    --grey-3:#141414;
+    --grey-2:#313131;
+    --grey-1:#D9D9D9;
+    --grey-0:#FFFFFF;
+    --grey-transparent: rgba(255, 255, 255, 0.4);
+    --success:#4CAF50;
+    --negative:#BF2D2D;
     --font: Inter;
     --title: bold 21px;
     --headline: 12px;
