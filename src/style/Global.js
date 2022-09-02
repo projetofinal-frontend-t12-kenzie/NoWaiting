@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-
 export default createGlobalStyle`
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -10,52 +9,48 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;
+    display: block;
 }
 body {
-	line-height: 1;
+    line-height: 1;
 }
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 blockquote, q {
-	quotes: none;
+    quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+    content: '';
+    content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
-
 -webkit-tap-highlight-color: transparent;
-
 a:-webkit-any-link {
     color: none;
     text-decoration: none;
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 
 :root{
     --color-primary: #FA7B12;
@@ -64,6 +59,7 @@ html {
     --grey-2:#313131;
     --grey-1:#D9D9D9;
     --grey-0:#FFFFFF;
+    --grey-transparent: rgba(255, 255, 255, 0.4);
     --success:#4CAF50;
     --negative:#BF2D2D;
     --font: Inter;
@@ -73,4 +69,4 @@ html {
     --headline-italic: italic 12px;
     --border-radius: 4px;
 }
-`
+`;
