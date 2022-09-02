@@ -1,13 +1,22 @@
+import "./App.css";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+import React from "react";
 import Global from "./style/Global";
-import './App.css';
+import Landingpage from "./pages/Landingpage/Landingpage";
+import DashboardRestaurante from "./pages/DashboardRestaurante";
+import DashboardCliente from "./pages/DashboardCliente/dashboardCliente";
 
-function App() {
+function App(){
   return (
     <div className="App">
-      {/* Comece aqui */}
-      {/* Colocar Component global como filho do contextprovider */}
-    </div>
-  );
+      <Global/>
+      <Landingpage/>
+      <DashboardRestaurante />
+      <Login />
+      <Register />
+      <DashboardCliente />
+    </div>)
 }
-
+  
 export default App;
