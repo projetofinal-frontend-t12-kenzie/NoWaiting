@@ -6,7 +6,7 @@ export const OrderContainer = styled.div`
   flex-direction: column;
 
   width: 430px;
-  min-height: 100%;
+  /* min-height: 100%; */
 
   padding: 10px;
 
@@ -18,15 +18,15 @@ export const OrderContainer = styled.div`
   .block {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
 
     width: 100%;
-    height: 50%;
+    height: 48%;
 
     .header {
       width: 100%;
-      height: 40px;
+      height: 50px;
 
       .title.header {
         font-weight: 700;
@@ -40,7 +40,8 @@ export const OrderContainer = styled.div`
     .list.orders {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: baseline;
+      padding: 0 0 0 13px;
 
       overflow-y: scroll;
 
@@ -141,6 +142,7 @@ export const OrderContainer = styled.div`
       }
     }
 
+    /* 
     .invoice {
       height: 207px;
       position: relative;
@@ -173,9 +175,9 @@ export const OrderContainer = styled.div`
         border-radius: 20px 20px 0px 0px;
         padding: 10px;
       }
-    }
+    } */
 
-    .send {
+    /* .send {
       width: 303px;
       height: 57px;
       left: 1178px;
@@ -188,7 +190,7 @@ export const OrderContainer = styled.div`
       color: #ffffff;
 
       font-size: 16px;
-    }
+    } */
 
     // .invoice {
     //     background-color: #09156E;
@@ -232,6 +234,95 @@ export const OrderContainer = styled.div`
     //     width: 200px;
     //     border-radius: 0px 0px 20px 20px;
     //   }
+  }
+  #total {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 100%;
+    height: 48%;
+
+    .invoice {
+      height: 207px;
+      position: relative;
+      width: 80%;
+
+      .invoice-amount {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+
+        background-color: #ffffff;
+        height: 130px;
+        position: relative;
+        width: 100%;
+        margin: 0px;
+        border-radius: 20px 20px 0px 0px;
+        padding: 10px;
+      }
+
+      .invoice-amount {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+
+        background-color: #ffffff;
+        height: 130px;
+        position: relative;
+        width: 100%;
+        margin: 0px;
+        border-radius: 20px 20px 0px 0px;
+        padding: 10px;
+      }
+
+      .invoice-cut {
+        .left {
+          color: var(--grey-0);
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+        }
+
+        .line {
+          background-color: var(--grey-3);
+          height: 2px;
+        }
+
+        .rigth {
+        }
+      }
+
+      .invoice-total {
+        flex-direction: column;
+        background-color: #ffffff;
+        height: 40px;
+        position: relative;
+        width: 100%;
+        margin: 0px;
+        border-radius: 0px 0px 20px 20px;
+        padding: 10px;
+
+        div {
+          margin-top: 10px;
+        }
+      }
+    }
+    .send {
+      width: 303px;
+      height: 57px;
+      left: 1178px;
+      top: 900px;
+
+      background: #fa7b12;
+      border-radius: 10px;
+      border: none;
+
+      color: #ffffff;
+
+      font-size: 16px;
+    }
   }
 `;
 

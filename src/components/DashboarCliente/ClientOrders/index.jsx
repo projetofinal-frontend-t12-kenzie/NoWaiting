@@ -65,7 +65,7 @@ const Orders = () => {
           </li>
         </ul>
       </div>
-      <div className="block">
+      <div id="total">
         <div className="invoice">
           <div className="invoice-amount">
             <SpaceBetween>

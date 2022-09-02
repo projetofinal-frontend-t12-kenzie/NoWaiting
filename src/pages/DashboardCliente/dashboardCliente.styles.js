@@ -12,12 +12,12 @@ export const ContainerDashboard = styled.div`
 
   @media screen and (min-width: 1000px) {
     width: 100vw;
-    height: 100%;
+    height: 116vh;
   }
 
   @media screen and (min-width: 1400px) {
     width: 100vw;
-    height: 100%;
+    height: 105vh;
   }
   .bodyList {
     width: 100vw;

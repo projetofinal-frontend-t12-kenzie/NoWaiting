@@ -25,7 +25,7 @@ export const ContainerProdutos = styled.div`
   @media screen and (min-width: 1400px) {
     width: 80%;
     overflow: hidden;
-    padding: 15px 10px 530px 10px;
+    padding: 15px 15px 530px 15px;
     flex-wrap: wrap;
   }
 `;
