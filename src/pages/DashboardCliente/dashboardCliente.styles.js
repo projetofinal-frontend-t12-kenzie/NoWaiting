@@ -2,25 +2,26 @@ import styled from "styled-components";
 
 export const ContainerDashboard = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  flex-direction: row;
   width: 100vw;
-  height: 150vh;
-  align-items: center;
+  height: 100%;
 
   background-color: var(--grey-2);
+  margin: 0;
 
   @media screen and (min-width: 1000px) {
-    width: 75%;
-    height: 115vh;
+    width: 100vw;
+    height: 100%;
   }
 
   @media screen and (min-width: 1400px) {
-    width: 70%;
-    height: 110vh;
+    width: 100vw;
+    height: 100%;
   }
   .bodyList {
-    width: 100%;
-    height: 70px;
+    width: 100vw;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
