@@ -5,6 +5,7 @@ import React from "react";
 import Global from "./style/Global";
 import Landingpage from "./pages/Landingpage/Landingpage";
 import DashboardRestaurante from "./pages/DashboardRestaurante";
+import DashboardCliente from "./pages/DashboardCliente/dashboardCliente";
 
 function App(){
   return (
@@ -14,6 +15,7 @@ function App(){
       <DashboardRestaurante />
       <Login />
       <Register />
+      <DashboardCliente />
     </div>)
 }
   
