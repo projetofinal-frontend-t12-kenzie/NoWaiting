@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import hamburguer from "../../../assests/Products/hamburguer.jpg";
-import { OrderContainer, SpaceBetween } from "./style";
+import { OrderContainer, SpaceBetween } from "./ClientOrders.style";
 
 const Orders = () => {
   const [requests, setRequest] = useState([]);

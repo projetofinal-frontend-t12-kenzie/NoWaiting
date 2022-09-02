@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const OrderContainer = styled.div`
-  display: flex;
+  display: none;
   justify-content: space-between;
   flex-direction: column;
+  position: relative;
 
   width: 430px;
   /* min-height: 100%; */
@@ -14,6 +15,10 @@ export const OrderContainer = styled.div`
 
   font-family: "Inter";
   font-style: normal;
+
+  @media screen and (min-width: 1000px) {
+    display: flex;
+  }
 
   .block {
     display: flex;
@@ -41,7 +46,11 @@ export const OrderContainer = styled.div`
       display: flex;
       flex-direction: column;
       align-items: baseline;
-      padding: 0 0 0 13px;
+      padding: 0 0 0 27px;
+
+      @media screen and (min-width: 1300px) {
+        padding: 0 0 0 13px;
+      }
 
       overflow-y: scroll;
 
@@ -141,99 +150,6 @@ export const OrderContainer = styled.div`
         }
       }
     }
-
-    /* 
-    .invoice {
-      height: 207px;
-      position: relative;
-      width: 80%;
-
-      .invoice-amount {
-        display: flex;
-        justify-content: space-around;
-        flex-direction: column;
-
-        background-color: #ffffff;
-        height: 130px;
-        position: relative;
-        width: 100%;
-        margin: 0px;
-        border-radius: 20px 20px 0px 0px;
-        padding: 10px;
-      }
-
-      .invoice-amount {
-        display: flex;
-        justify-content: space-around;
-        flex-direction: column;
-
-        background-color: #ffffff;
-        height: 130px;
-        position: relative;
-        width: 100%;
-        margin: 0px;
-        border-radius: 20px 20px 0px 0px;
-        padding: 10px;
-      }
-    } */
-
-    /* .send {
-      width: 303px;
-      height: 57px;
-      left: 1178px;
-      top: 900px;
-
-      background: #fa7b12;
-      border-radius: 10px;
-      border: none;
-
-      color: #ffffff;
-
-      font-size: 16px;
-    } */
-
-    // .invoice {
-    //     background-color: #09156E;
-    //     height: 100px;
-    //     position: relative;
-    //     width: 200px;
-    //     margin: 0px;
-    //     border-radius: 20px 20px 0px 0px;
-    //   }
-    //   hr{
-    //     margin:0px;
-    //     width: 200px;
-    //     background-color: #000;
-    //     height: 4px;
-    //   }
-    //   .bolaesquerda {
-    //     position: absolute;
-    //       width: 40px;
-    //       height: 40px;
-    //       border-radius:40px;
-    //       background-color: #fff;
-    //       top: 80px;
-    //       left: -20px;
-    //       z-index: 1;
-    //   }
-    //   .boladireita {
-    //     position: absolute;
-    //       width: 40px;
-    //       height: 40px;
-    //       border-radius:40px;
-    //       background-color: #fff;
-    //       top: 80px;
-    //       right: -20px;
-    //       z-index: 1;
-    //   }
-    //   .subtotal{
-    //     margin: 0px;
-    //     background-color: #09156E;
-    //     height: 100px;
-    //     position: absolute;
-    //     width: 200px;
-    //     border-radius: 0px 0px 20px 20px;
-    //   }
   }
   #total {
     display: flex;
@@ -247,50 +163,55 @@ export const OrderContainer = styled.div`
     .invoice {
       height: 207px;
       position: relative;
-      width: 80%;
+      right: 21px;
+      top: -18px;
+      width: 70%;
 
       .invoice-amount {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
         flex-direction: column;
 
         background-color: #ffffff;
-        height: 130px;
+        height: 110px;
         position: relative;
         width: 100%;
         margin: 0px;
         border-radius: 20px 20px 0px 0px;
-        padding: 10px;
-      }
+        padding: 0 20px 10px 20px;
 
-      .invoice-amount {
-        display: flex;
-        justify-content: space-around;
-        flex-direction: column;
-
-        background-color: #ffffff;
-        height: 130px;
-        position: relative;
-        width: 100%;
-        margin: 0px;
-        border-radius: 20px 20px 0px 0px;
-        padding: 10px;
+        font-size: 14px;
+        font-weight: 600;
       }
 
       .invoice-cut {
         .left {
-          color: var(--grey-0);
-          width: 20px;
-          height: 20px;
-          border-radius: 50%;
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          border-radius: 40px;
+          background-color: var(--grey-3);
+          top: 101px;
+          left: -26px;
+          z-index: 1;
         }
 
         .line {
-          background-color: var(--grey-3);
-          height: 2px;
+          margin: 0px;
+          width: 200px;
+          background-color: #000;
+          height: 4px;
         }
 
         .rigth {
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          border-radius: 40px;
+          background-color: var(--grey-3);
+          top: 101px;
+          right: -64px;
+          z-index: 1;
         }
       }
 
@@ -302,13 +223,27 @@ export const OrderContainer = styled.div`
         width: 100%;
         margin: 0px;
         border-radius: 0px 0px 20px 20px;
-        padding: 10px;
+        padding: 10px 20px 0 20px;
 
         div {
           margin-top: 10px;
+          font-size: 15px;
+          font-weight: 600;
         }
       }
     }
+
+    .finish {
+      position: absolute;
+      top: 505px;
+      right: 12px;
+
+      @media screen and (min-width: 1300px) {
+        right: 30px;
+        top: 510px;
+      }
+    }
+
     .send {
       width: 303px;
       height: 57px;

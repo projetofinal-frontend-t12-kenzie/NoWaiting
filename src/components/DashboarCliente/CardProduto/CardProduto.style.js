@@ -10,10 +10,14 @@ export const ContainerProdutos = styled.div`
   box-sizing: border-box;
   flex-direction: row;
   justify-content: space-between;
-  padding: 130px 20px 130px 15px;
+  padding: 20px 15px 20px 15px;
   gap: 15px;
   overflow: scroll;
   overflow-y: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   @media screen and (min-width: 1000px) {
     width: 100%;
@@ -22,7 +26,7 @@ export const ContainerProdutos = styled.div`
     flex-wrap: wrap;
   }
 
-  @media screen and (min-width: 1400px) {
+  @media screen and (min-width: 1300px) {
     width: 80%;
     overflow: hidden;
     padding: 15px 15px 530px 15px;
@@ -45,6 +49,9 @@ export const CardProdutos = styled.div`
 
   font-family: var(--font);
 
+  @media screen and (min-width: 1000px) {
+    height: 195px;
+  }
   &:hover {
     transform: scale(1.1);
     transition: 0.4s;
@@ -63,7 +70,7 @@ export const CardProdutos = styled.div`
     gap: 6px;
 
     position: relative;
-    top: 58px;
+    top: 45px;
   }
 
   h3 {

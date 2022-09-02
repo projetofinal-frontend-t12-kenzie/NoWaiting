@@ -15,7 +15,7 @@ export const ContainerDashboard = styled.div`
     height: 116vh;
   }
 
-  @media screen and (min-width: 1400px) {
+  @media screen and (min-width: 1300px) {
     width: 100vw;
     height: 105vh;
   }

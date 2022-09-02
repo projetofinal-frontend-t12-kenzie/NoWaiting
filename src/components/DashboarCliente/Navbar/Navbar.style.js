@@ -19,6 +19,10 @@ export const ContainerNavbar = styled.div`
     gap: 15px;
     overflow: scroll;
 
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
     @media screen and (min-width: 750px) {
       justify-content: space-evenly;
     }
@@ -28,7 +32,7 @@ export const ContainerNavbar = styled.div`
       overflow: hidden;
     }
 
-    @media screen and (min-width: 1400px) {
+    @media screen and (min-width: 1300px) {
       width: 80%;
       justify-content: space-between;
     }
@@ -47,6 +51,11 @@ export const ContainerNavbar = styled.div`
       background-color: #fa7b12;
       transform: scale(1.2);
       transition: 1s;
+    }
+
+    &:focus {
+      background-color: #fa7b12;
+      transform: scale(1.2);
     }
   }
 `;
