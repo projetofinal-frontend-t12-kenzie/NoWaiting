@@ -1,12 +1,14 @@
+import React from "react";
+
 import Global from "./style/Global";
-import './App.css';
+import DashboardRestaurante from "./pages/DashboardRestaurante";
 
 function App() {
   return (
-    <div className="App">
-      {/* Comece aqui */}
-      {/* Colocar Component global como filho do contextprovider */}
-    </div>
+    <>
+      <DashboardRestaurante />
+      <Global />
+    </>
   );
 }
 
