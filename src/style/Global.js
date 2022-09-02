@@ -48,6 +48,10 @@ a:-webkit-any-link {
     color: none;
     text-decoration: none;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 :root{
     --color-primary: #FA7B12;
     --color-primary-focused:#FFA75E;
