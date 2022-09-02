@@ -44,13 +44,14 @@ export const LoginForm = styled.form`
     margin: 10px;
   }
 
-  .anticon{
-        position: absolute;
-        margin: 6vh -18vw 0 -2vw;
-        color: #000000
-    }
+  .anticon {
+    position: absolute;
+    margin-top: 52px;
+    margin-left: 275px;
+    color: #000000;
+  }
 
-  span{
+  span {
     font-family: "Roboto";
     color: red;
     margin: 10px;
@@ -86,18 +87,18 @@ export const LoginForm = styled.form`
     color: #141414;
   }
 
-  p{
+  p {
     font-family: "Roboto";
     font-size: 14px;
   }
 
-  strong{
+  strong {
     font-family: "Roboto";
     font-size: 14px;
     color: #fa7b12;
   }
 
-  strong:hover{
+  strong:hover {
     color: #ffa75e;
   }
 `;

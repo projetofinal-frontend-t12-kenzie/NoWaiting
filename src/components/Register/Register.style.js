@@ -43,12 +43,18 @@ export const RegisterForm = styled.form`
     margin: 10px;
   }
 
-  span{
+  span {
     font-family: "Roboto";
     color: red;
     margin: 10px;
     font-size: 14px;
     font-weight: bold;
+  }
+  .anticon {
+    position: absolute;
+    margin-top: -14px;
+    margin-left: 275px;
+    color: #000000;
   }
 
   .btnRegister {

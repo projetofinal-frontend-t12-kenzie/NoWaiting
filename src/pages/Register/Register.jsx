@@ -5,20 +5,22 @@ import {
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { EyeFilled, EyeInvisibleFilled } from "@ant-design/icons";
+import { useState } from "react";
 
 function Register() {
   const schema = yup.object().shape({
     name: yup.string().required("Campo obrigatório"),
     email: yup.string().email().required("Campo obrigatório"),
     password: yup
-    .string()
-    .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\.*])(?=.{8,})/,
-      "A senha deve conter 8 caraceteres, uma maiúscula, uma minúscula, um número e um caracter especial"
-    )
-    .min(8)
-    .required("Campo obrigatório"),
-    
+      .string()
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\.*])(?=.{8,})/,
+        "A senha deve conter 8 caraceteres, uma maiúscula, uma minúscula, um número e um caracter especial"
+      )
+      .min(8)
+      .required("Campo obrigatório"),
+
     passwordConfirm: yup
       .string()
       .oneOf([yup.ref("password")], "Senhas não conferem")
@@ -36,6 +38,8 @@ function Register() {
   } = useForm({
     resolver: yupResolver(schema),
   });
+
+  const [type, setType] = useState("password");
 
   function handleRegister(data) {
     try {
@@ -67,11 +71,16 @@ function Register() {
         {errors.email && <span>{errors.email.message}</span>}
 
         <input
-          type="password"
+          type={type}
           placeholder="Senha"
           id="password"
           {...register("password")}
         />
+        {type === "password" ? (
+          <EyeFilled onClick={() => setType("text")} />
+        ) : (
+          <EyeInvisibleFilled onClick={() => setType("password")} />
+        )}
         {errors.password && <span>{errors.password.message}</span>}
 
         <input
@@ -80,7 +89,9 @@ function Register() {
           id="passwordConfirm"
           {...register("passwordConfirm")}
         />
-        {errors.passwordConfirm && <span>{errors.passwordConfirm.message}</span>}
+        {errors.passwordConfirm && (
+          <span>{errors.passwordConfirm.message}</span>
+        )}
 
         <input
           type="text"

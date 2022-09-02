@@ -9,18 +9,18 @@ import { useState } from "react";
 import { EyeFilled, EyeInvisibleFilled } from "@ant-design/icons";
 
 function Login() {
+  const [type, setType] = useState("password");
 
-const [type, setType] = useState("password");
-
-const schema = yup.object({
-  email: yup.string().email().required("Campo obrigatório"),
-  password: yup.string()
-  .matches(
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\.*])(?=.{8,})/,
-    "A senha deve conter no mínimo 8 caraceteres, uma maiúscula, uma minúscula, um número e um caracter especial"
-  )
-  .required("Campo obrigatório"),
-});
+  const schema = yup.object({
+    email: yup.string().email().required("Campo obrigatório"),
+    password: yup
+      .string()
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\.*])(?=.{8,})/,
+        "A senha deve conter no mínimo 8 caraceteres, uma maiúscula, uma minúscula, um número e um caracter especial"
+      )
+      .required("Campo obrigatório"),
+  });
 
   const {
     handleSubmit,
@@ -58,11 +58,11 @@ const schema = yup.object({
             {...register("password")}
           />
           {type === "password" ? (
-          <EyeFilled onClick={() => setType("text")} />
+            <EyeFilled onClick={() => setType("text")} />
           ) : (
             <EyeInvisibleFilled onClick={() => setType("password")} />
           )}
-         {errors.password && <span>{errors.password.message}</span>}
+          {errors.password && <span>{errors.password.message}</span>}
 
           <button className="btnSingIn">Entrar</button>
           <p>
