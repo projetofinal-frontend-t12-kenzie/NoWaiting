@@ -32,6 +32,35 @@ export const LoginForm = styled.form`
     font-weight: bold;
   }
 
+  .container{
+    display: flex;
+    flex-direction: row;
+    width: 97%;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    margin: 10px;
+  }
+  .container > input{
+    width: 90%;
+    margin: 0;
+    height: 100%;
+
+  }
+
+  .eye{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4% 0 0 0;
+  }
+
+  .eye > span{
+    height: 100%;
+    color: black;
+  }
+
   input {
     font-family: "Roboto";
     width: 90%;
@@ -44,19 +73,12 @@ export const LoginForm = styled.form`
     margin: 10px;
   }
 
-  .anticon {
-    position: absolute;
-    margin-top: 52px;
-    margin-left: 275px;
-    color: #000000;
-  }
-
   span {
     font-family: "Roboto";
-    color: red;
-    margin: 10px;
-    font-size: 14px;
-    font-weight: bold;
+    color: darkred;
+    margin: 1px;
+    font-size: 12px;
+    font-weight: medium;
   }
 
   .btnSingIn {

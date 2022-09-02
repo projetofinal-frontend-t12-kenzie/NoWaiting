@@ -51,17 +51,22 @@ function Login() {
           />
           {errors.email && <span>{errors.email.message}</span>}
 
+          <div className="container">
+
           <input
             type={type}
             placeholder="Senha"
             id="password"
             {...register("password")}
           />
+          <div className="eye">
           {type === "password" ? (
             <EyeFilled onClick={() => setType("text")} />
           ) : (
             <EyeInvisibleFilled onClick={() => setType("password")} />
           )}
+          </div>
+          </div>
           {errors.password && <span>{errors.password.message}</span>}
 
           <button className="btnSingIn">Entrar</button>
