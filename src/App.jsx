@@ -1,7 +1,8 @@
+import "./App.css";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
 import React from "react";
-
 import Global from "./style/Global";
-import './App.css';
 import Landingpage from "./pages/Landingpage/Landingpage";
 import DashboardRestaurante from "./pages/DashboardRestaurante";
 
@@ -11,6 +12,9 @@ function App(){
       <Global/>
       <Landingpage/>
       <DashboardRestaurante />
-    </div>)}
-
+      <Login />
+      <Register />
+    </div>)
+}
+  
 export default App;
