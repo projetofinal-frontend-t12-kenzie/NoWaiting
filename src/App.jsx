@@ -1,11 +1,12 @@
 import Global from "./style/Global";
 import './App.css';
+import Landingpage from "./pages/Landingpage/Landingpage";
 
 function App() {
   return (
     <div className="App">
-      {/* Comece aqui */}
-      {/* Colocar Component global como filho do contextprovider */}
+      <Global/>
+      <Landingpage/>
     </div>
   );
 }
