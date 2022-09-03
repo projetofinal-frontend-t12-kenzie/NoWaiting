@@ -11,23 +11,23 @@ const ContextsProvider = ({children})=>{
   const [loading, setLoading] = useState(true)
 //   const location = useLocation()
 
-  useEffect(()=>{
-    async function loadUser() {
-      if(token){
-        try{
+  // useEffect(()=>{
+  //   async function loadUser() {
+  //     if(token){
+  //       try{
         
-          api.defaults.headers.authorization = `Bearer ${token}`;
-          const { data } = await api.get('/profile');
-          setUser(data);
+  //         api.defaults.headers.authorization = `Bearer ${token}`;
+  //         const { data } = await api.get('/profile');
+  //         setUser(data);
 
-        } 
-        catch(err){console.log(err)} 
-      }
-      setLoading(false)
-    }
+  //       } 
+  //       catch(err){console.log(err)} 
+  //     }
+  //     setLoading(false)
+  //   }
 
-    loadUser()
-  },[token])
+  //   loadUser()
+  // },[token])
 
 
   return(

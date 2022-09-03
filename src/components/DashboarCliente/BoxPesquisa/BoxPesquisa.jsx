@@ -1,6 +1,4 @@
 import { Pesquisa } from "./BoxPesquisa.style";
-// import { BiSearchAlt } from "react-icons/bi";
-// import { TbHome2 } from "react-icons/tb";
 import { BiSearchAlt } from "react-icons/bi";
 import { TbHome2 } from "react-icons/tb";
 
