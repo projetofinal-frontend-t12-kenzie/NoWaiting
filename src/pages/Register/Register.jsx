@@ -4,33 +4,12 @@ import {
 } from "../../components/Register/Register.style.js";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { EyeFilled, EyeInvisibleFilled } from "@ant-design/icons";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { schema } from "../../validators/register.js";
+import { Contexts } from "../../contexts/provider.jsx";
 
 function Register() {
-  const schema = yup.object().shape({
-    name: yup.string().required("Campo obrigatório"),
-    email: yup.string().email().required("Campo obrigatório"),
-    password: yup
-      .string()
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\.*])(?=.{8,})/,
-        "A senha deve conter 8 caraceteres, uma maiúscula, uma minúscula, um número e um caracter especial"
-      )
-      .min(8)
-      .required("Campo obrigatório"),
-
-    passwordConfirm: yup
-      .string()
-      .oneOf([yup.ref("password")], "Senhas não conferem")
-      .required("Campo obrigatório"),
-
-    contact: yup.string().required("Campo obrigatório"),
-
-    img: yup.string().required("Campo obrigatório"),
-  });
-
   const {
     handleSubmit,
     register,
@@ -41,18 +20,12 @@ function Register() {
 
   const [type, setType] = useState("password");
 
-  function handleRegister(data) {
-    try {
-      console.log(data);
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  const {registerUser} = useContext(Contexts)
 
   return (
     <RegisterContainer>
-      <RegisterForm onSubmit={handleSubmit(handleRegister)}>
-        <button className="btnCloseRegister">X</button>
+      <RegisterForm onSubmit={handleSubmit(registerUser)}>
+        <a href="/login" className="btnCloseRegister">X</a>
         <h2>Cadastre-se</h2>
         <input
           type="text"
@@ -60,7 +33,7 @@ function Register() {
           id="name"
           {...register("name")}
         />
-        {errors.name && <span>{errors.name.message}</span>}
+        {errors.name && <span>{errors.name?.message}</span>}
 
         <input
           type="text"
@@ -68,7 +41,7 @@ function Register() {
           id="email"
           {...register("email")}
         />
-        {errors.email && <span>{errors.email.message}</span>}
+        {errors.email && <span>{errors.email?.message}</span>}
 
         <div className="container">
 
@@ -86,7 +59,7 @@ function Register() {
         )}
         </div>
         </div>
-        {errors.password && <span>{errors.password.message}</span>}
+        {errors.password && <span>{errors.password?.message}</span>}
 
         <input
           type="password"
@@ -95,7 +68,7 @@ function Register() {
           {...register("passwordConfirm")}
         />
         {errors.passwordConfirm && (
-          <span>{errors.passwordConfirm.message}</span>
+          <span>{errors.passwordConfirm?.message}</span>
         )}
 
         <input
@@ -104,7 +77,7 @@ function Register() {
           id="contact"
           {...register("contact")}
         />
-        {errors.contact && <span>{errors.contact.message}</span>}
+        {errors.contact && <span>{errors.contact?.message}</span>}
 
         <input
           type="text"
@@ -112,7 +85,7 @@ function Register() {
           id="img"
           {...register("img")}
         />
-        {errors.img && <span>{errors.img.message}</span>}
+        {errors.img && <span>{errors.img?.message}</span>}
 
         <button type="submit" className="btnRegister">
           Cadastrar

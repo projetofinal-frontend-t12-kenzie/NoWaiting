@@ -91,8 +91,8 @@ width: 100%;
 export const DivSelection = styled.div`
 height: 100vh;
 width: 100%;
-display: flex;
-flex-direction: column;
+display: grid;
+grid-template-columns: 1fr 1fr;
 @media (min-width:425px){}
 @media (min-width:700px){
 flex-direction: row;}
@@ -114,7 +114,7 @@ box-shadow: none;
 @media (min-width:425px){}
 @media (min-width:700px){
 height: 100vh;
-width: 50%;
+width: 100%;
 }
 `
 export const DivFregues = styled.div`
@@ -136,7 +136,7 @@ box-shadow: none;
 @media (min-width:425px){}
 @media (min-width:700px){
 height: 100vh;
-width: 50%;
+width: 100%;
 }
 `
 export const Cliente = styled.span`
