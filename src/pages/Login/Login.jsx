@@ -61,9 +61,9 @@ function Login() {
           <button className="btnSingIn">Entrar</button>
           <p>
             Ainda não possui cadastro?
-            <button type="submit" className="btnSingUp">
+            <a href="/register" className="btnSingUp">
               <strong>Cadastre-se aqui!</strong>
-            </button>
+            </a>
           </p>
         </LoginForm>
       </div>
