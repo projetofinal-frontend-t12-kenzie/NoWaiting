@@ -1,8 +1,5 @@
-
 import { createGlobalStyle } from "styled-components";
-
 export const GlobalStyle = createGlobalStyle`
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -23,7 +20,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -54,6 +51,10 @@ a:-webkit-any-link {
     text-decoration: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root{
     --color-primary: #FA7B12;
     --color-primary-focused:#FFA75E;
@@ -70,5 +71,5 @@ a:-webkit-any-link {
     --headline-bold: bold 12px;
     --headline-italic: italic 12px;
     --border-radius: 4px;
-}
-`
+}`;
+

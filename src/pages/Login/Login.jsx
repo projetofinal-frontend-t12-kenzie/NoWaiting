@@ -3,24 +3,13 @@ import {
   LoginForm,
 } from "../../components/Login/Login.style.js";
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { EyeFilled, EyeInvisibleFilled } from "@ant-design/icons";
+import { schema } from "../../validators/login.js";
 
 function Login() {
   const [type, setType] = useState("password");
-
-  const schema = yup.object({
-    email: yup.string().email().required("Campo obrigatório"),
-    password: yup
-      .string()
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\.*])(?=.{8,})/,
-        "A senha deve conter no mínimo 8 caraceteres, uma maiúscula, uma minúscula, um número e um caracter especial"
-      )
-      .required("Campo obrigatório"),
-  });
 
   const {
     handleSubmit,
@@ -72,9 +61,9 @@ function Login() {
           <button className="btnSingIn">Entrar</button>
           <p>
             Ainda não possui cadastro?
-            <button type="submit" className="btnSingUp">
+            <a href="/register" className="btnSingUp">
               <strong>Cadastre-se aqui!</strong>
-            </button>
+            </a>
           </p>
         </LoginForm>
       </div>

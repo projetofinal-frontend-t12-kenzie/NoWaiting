@@ -102,6 +102,8 @@ export const RegisterForm = styled.form`
   }
 
   .btnCloseRegister {
+    color: rgba(250, 123, 18, 1);
+    font-family: "Roboto";
     display: flex;
     margin-left: 290px;
     border: none;
