@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "./Logo.svg";
+import NoWaitingLogoMini from "../../images/NoWaitingLogoMini.png";
 import hamburguer from "./hamburguer.png";
 import usuario from "./usuario.png";
 import { Container, Dashboard, Navbardir } from "./DashboardRestaurante.style";
@@ -22,7 +23,7 @@ function DashboardRestaurante() {
       <div className="navbar-esquerda">
         <div className="logo">
           <figure>
-            <img src={Logo} alt="Logo" />
+            <img src={NoWaitingLogoMini} alt="Logo" />
           </figure>
         </div>
         <div className="menu">
