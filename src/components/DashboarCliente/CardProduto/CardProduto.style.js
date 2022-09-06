@@ -62,7 +62,7 @@ export const CardProdutos = styled.div`
     width: 100%;
     position: absolute;
     border-radius: 12px;
-    opacity: 0.5;
+    opacity: 0.4;
   }
 
   div {
@@ -90,7 +90,7 @@ export const CardProdutos = styled.div`
 
   p {
     font-size: 14px;
-    font-weight: 200;
+    font-weight: 400;
     color: var(--grey-0);
   }
 

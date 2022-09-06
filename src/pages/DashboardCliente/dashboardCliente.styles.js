@@ -25,10 +25,18 @@ export const ContainerDashboard = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 
     @media screen and (min-width: 750px) {
       width: 95%;
+    }
+
+    @media screen and (min-width: 1000px) {
+      width: 70%;
+    }
+
+    @media screen and (min-width: 1300px) {
+      width: 75%;
     }
   }
 `;

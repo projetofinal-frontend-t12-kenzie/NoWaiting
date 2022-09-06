@@ -2,10 +2,23 @@ import { CardProdutos, ContainerProdutos } from "./CardProduto.style";
 import { BsCart2 } from "react-icons/bs";
 import { useContext } from "react";
 import { Contexts } from "../../../contexts/provider";
+import { useState } from "react";
 
 const Produtos = () => {
   const { menu, filtered } = useContext(Contexts);
+  console.log(menu);
 
+  // const [currentSale, setCurrentSale] = useState([]);
+
+  const handleClick = (id) => {
+    // const contem = currentSale.find((item) => item.id === id);
+    console.log(id);
+  };
+
+  //   if (!contem) {
+  //     setCurrentSale((prevCurrentSale) => [...prevCurrentSale,]);
+  //   }
+  // };
   return (
     <ContainerProdutos>
       {filtered === ""
@@ -17,7 +30,7 @@ const Produtos = () => {
                 <p>{produto.description}</p>
                 <span className="categoria">{produto.type}</span>
                 <span>R$ {produto.price}.00</span>
-                <button>
+                <button onClick={() => handleClick(produto.id)}>
                   <BsCart2 size={15} />
                 </button>
               </div>
