@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ConcludedOrderCard = styled.div`
   display: flex;
-  width: 90%;
+  width: 100%;
   height: 65px;
   justify-content: space-between;
   align-items: center;
@@ -23,14 +23,14 @@ export const ConcludedOrderCard = styled.div`
     color: var(--success);
   }
 
-  strong{
+  strong {
     font-family: "Roboto";
     font-size: 14px;
     font-weight: bold;
     color: var(--grey-3);
   }
-  
-  span{
+
+  span {
     font-family: "Roboto";
     font-size: 14px;
     font-weight: medium;

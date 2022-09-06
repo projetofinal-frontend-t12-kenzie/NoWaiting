@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const OrderCard = styled.div`
   display: flex;
-  width: 90%;
+  width: 100%;
   height: 65px;
   justify-content: space-around;
   align-items: center;
@@ -26,4 +26,9 @@ export const OrderCard = styled.div`
     color: var(--grey-3);
   }
 
+  @media screen and (min-width: 769px) {
+    width: 80%;
+    max-height: 500px;
+    margin: 20px 100px 20px 0px;
+  }
 `;
