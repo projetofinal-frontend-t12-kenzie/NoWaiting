@@ -4,7 +4,7 @@ import hamburguer from "./hamburguer.png";
 import usuario from "./usuario.png";
 import { AiOutlineCheck } from "react-icons/ai";
 import { DashboardRestContainer } from "../../components/DashboardRest/DashboardRestContainer.style";
-import { HeaderRest } from "../../components/DashboardRest/HeaderRest.style";
+import { HeaderContainer } from "../../components/DashboardRest/HeaderContainer.style";
 import { RestProfile } from "../../components/DashboardRest/RestProfile.style";
 import { NonConcludedOrders } from "../../components/DashboardRest/NonConcludedOrders.style";
 import { OrderCard } from "../../components/DashboardRest/OrderCard.style";
@@ -12,11 +12,16 @@ import { ConcludedOrders } from "../../components/DashboardRest/ConcludedOrders.
 import { OrdersContainer } from "../../components/DashboardRest/OrdersContainer.style";
 import { ConcludedOrderCard } from "../../components/DashboardRest/ConcludedOrderCard.style";
 import { TotalContainer } from "../../components/DashboardRest/Total.style";
+import { EmptyOrderCard } from "../../components/DashboardRest/EmptyOrderCard.style";
+import { EmptyConcludedOrders } from "../../components/DashboardRest/EmptyConcludedOrders.style";
+import { DivAside } from "../../components/DashboardRest/DivAside.style";
+import { HeaderRest } from "../../components/DashboardRest/HeaderRest.style";
 
 function DashboardRest() {
   return (
     <DashboardRestContainer>
-      <HeaderRest>
+      <HeaderContainer>
+        <HeaderRest>
         <header>
           <img src={Logo} alt="NoWaiting"></img>
         </header>
@@ -27,182 +32,54 @@ function DashboardRest() {
           </div>
           <div>
             <button className="btnLogOut" type="button">
-              x
+              Sair
             </button>
           </div>
         </RestProfile>
-      </HeaderRest>
+        </HeaderRest>
+      </HeaderContainer>  
       <OrdersContainer>
-        <h3>Pedidos em espera</h3>
         <NonConcludedOrders>
+        <h3>Pedidos em espera</h3>
+          {/* <EmptyOrderCard>
+            <p>Ainda não temos pedidos :(</p>
+          </EmptyOrderCard> */}
           <OrderCard>
             <span>Data, Hora</span>
             <img src={hamburguer} alt="hamburguer" />
             <h2>Hamburger</h2>
             <span>Mesa 10</span>
-            <h2>R$ x,xx</h2>
-            <input type="checkbox" />
-          </OrderCard>
-          <OrderCard>
-            <span>Data, Hora</span>
-            <img src={hamburguer} alt="hamburguer" />
-            <h2>Hamburger</h2>
-            <span>Mesa 10</span>
-            <h2>R$ x,xx</h2>
-            <input type="checkbox" />
-          </OrderCard>
-          <OrderCard>
-            <span>Data, Hora</span>
-            <img src={hamburguer} alt="hamburguer" />
-            <h2>Hamburger</h2>
-            <span>Mesa 10</span>
-            <h2>R$ x,xx</h2>
-            <input type="checkbox" />
-          </OrderCard>
-          <OrderCard>
-            <span>Data, Hora</span>
-            <img src={hamburguer} alt="hamburguer" />
-            <h2>Hamburger</h2>
-            <span>Mesa 10</span>
-            <h2>R$ x,xx</h2>
-            <input type="checkbox" />
-          </OrderCard>
-          <OrderCard>
-            <span>Data, Hora</span>
-            <img src={hamburguer} alt="hamburguer" />
-            <h2>Hamburger</h2>
-            <span>Mesa 10</span>
-            <h2>R$ x,xx</h2>
-            <input type="checkbox" />
-          </OrderCard>
-          <OrderCard>
-            <span>Data, Hora</span>
-            <img src={hamburguer} alt="hamburguer" />
-            <h2>Hamburger</h2>
-            <span>Mesa 10</span>
-            <h2>R$ x,xx</h2>
-            <input type="checkbox" />
-          </OrderCard>
-          <OrderCard>
-            <span>Data, Hora</span>
-            <img src={hamburguer} alt="hamburguer" />
-            <h2>Hamburger</h2>
-            <span>Mesa 10</span>
-            <h2>R$ x,xx</h2>
-            <input type="checkbox" />
-          </OrderCard>
-          <OrderCard>
-            <span>Data, Hora</span>
-            <img src={hamburguer} alt="hamburguer" />
-            <h2>Hamburger</h2>
-            <span>Mesa 10</span>
-            <h2>R$ x,xx</h2>
+            <h3>R$ x,xx</h3>
             <input type="checkbox" />
           </OrderCard>
         </NonConcludedOrders>
-        <h3>Pedidos Concluídos</h3>
-        <ConcludedOrders>
-          <ConcludedOrderCard>
-            <img src={hamburguer} alt="img comida" />
-            <div className="divInfo">
-              <strong>Hamburguer</strong>
-              <span>Mesa 10</span>
-              <h2>R$ x,xx</h2>
+        <DivAside>
+          <h3>Pedidos concluídos</h3>
+          <ConcludedOrders>
+            {/* <EmptyConcludedOrders>
+            <p>Ainda não temos pedidos concluidos :(</p>
+          </EmptyConcludedOrders> */}
+            <ConcludedOrderCard>
+              <img src={hamburguer} alt="img comida" />
+              <div className="divInfo">
+                <strong>Hamburguer</strong>
+                <span>Mesa 10</span>
+                <h2>R$ x,xx</h2>
+              </div>
+              <AiOutlineCheck size={24} />
+            </ConcludedOrderCard>
+          </ConcludedOrders>
+          <TotalContainer>
+            <div>
+              <span>Total acumulado</span>
+              <strong>R$ 416,30</strong>
             </div>
-            <AiOutlineCheck size={24} />
-          </ConcludedOrderCard>
-          <ConcludedOrderCard>
-            <img src={hamburguer} alt="img comida" />
-            <div className="divInfo">
-              <strong>Hamburguer</strong>
-              <span>Mesa 10</span>
-              <h2>R$ x,xx</h2>
+            <div>
+              <span>Total de pedidos</span>
+              <strong>8</strong>
             </div>
-            <AiOutlineCheck size={24} />
-          </ConcludedOrderCard>
-          <ConcludedOrderCard>
-            <img src={hamburguer} alt="img comida" />
-            <div className="divInfo">
-              <strong>Hamburguer</strong>
-              <span>Mesa 10</span>
-              <h2>R$ x,xx</h2>
-            </div>
-            <AiOutlineCheck size={24} />
-          </ConcludedOrderCard>
-          <ConcludedOrderCard>
-            <img src={hamburguer} alt="img comida" />
-            <div className="divInfo">
-              <strong>Hamburguer</strong>
-              <span>Mesa 10</span>
-              <h2>R$ x,xx</h2>
-            </div>
-            <AiOutlineCheck size={24} />
-          </ConcludedOrderCard>
-          <ConcludedOrderCard>
-            <img src={hamburguer} alt="img comida" />
-            <div className="divInfo">
-              <strong>Hamburguer</strong>
-              <span>Mesa 10</span>
-              <h2>R$ x,xx</h2>
-            </div>
-            <AiOutlineCheck size={24} />
-          </ConcludedOrderCard>
-          <ConcludedOrderCard>
-            <img src={hamburguer} alt="img comida" />
-            <div className="divInfo">
-              <strong>Hamburguer</strong>
-              <span>Mesa 10</span>
-              <h2>R$ x,xx</h2>
-            </div>
-            <AiOutlineCheck size={24} />
-          </ConcludedOrderCard>
-          <ConcludedOrderCard>
-            <img src={hamburguer} alt="img comida" />
-            <div className="divInfo">
-              <strong>Hamburguer</strong>
-              <span>Mesa 10</span>
-              <h2>R$ x,xx</h2>
-            </div>
-            <AiOutlineCheck size={24} />
-          </ConcludedOrderCard>
-          <ConcludedOrderCard>
-            <img src={hamburguer} alt="img comida" />
-            <div className="divInfo">
-              <strong>Hamburguer</strong>
-              <span>Mesa 10</span>
-              <h2>R$ x,xx</h2>
-            </div>
-            <AiOutlineCheck size={24} />
-          </ConcludedOrderCard>
-          <ConcludedOrderCard>
-            <img src={hamburguer} alt="img comida" />
-            <div className="divInfo">
-              <strong>Hamburguer</strong>
-              <span>Mesa 10</span>
-              <h2>R$ x,xx</h2>
-            </div>
-            <AiOutlineCheck size={24} />
-          </ConcludedOrderCard>
-          <ConcludedOrderCard>
-            <img src={hamburguer} alt="img comida" />
-            <div className="divInfo">
-              <strong>Hamburguer</strong>
-              <span>Mesa 10</span>
-              <h2>R$ x,xx</h2>
-            </div>
-            <AiOutlineCheck size={24} />
-          </ConcludedOrderCard>
-        </ConcludedOrders>
-        <TotalContainer>
-          <div>
-            <span>Total acumulado</span>
-            <strong>R$ 416,30</strong>
-          </div>
-          <div>
-            <span>Total de pedidos</span>
-            <strong>8</strong>
-          </div>
-        </TotalContainer>
+          </TotalContainer>
+        </DivAside>
       </OrdersContainer>
     </DashboardRestContainer>
   );

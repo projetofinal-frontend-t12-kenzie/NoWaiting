@@ -20,16 +20,27 @@ export const ConcludedOrderCard = styled.div`
   }
   svg {
     margin-right: 45px;
+    color: var(--success);
   }
-  /* &:hover {
-    transform: scale(1.03);
-  } */
+
+  strong{
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--grey-3);
+  }
+  
+  span{
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: medium;
+    color: var(--grey-2);
+    margin: 4px 0;
+  }
+
   h2 {
     font-weight: bold;
     font-family: "Roboto";
-  }
-  span {
-    font-family: "Roboto";
-    color: var(--grey-3);
+    color: var(--color-primary);
   }
 `;

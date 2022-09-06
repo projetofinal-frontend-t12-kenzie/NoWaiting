@@ -10,15 +10,20 @@ export const OrderCard = styled.div`
   border-radius: 10px;
   font-size: 14px;
 
-  /* &:hover {
-    transform: scale(1.03);
-  } */
   h2 {
     font-weight: bold;
     font-family: "Roboto";
+    color: var(--grey-3);
+  }
+
+  h3 {
+    font-weight: bold;
+    font-family: "Roboto";
+    color: var(--color-primary);
   }
   span {
     font-family: "Roboto";
     color: var(--grey-3);
   }
+
 `;
