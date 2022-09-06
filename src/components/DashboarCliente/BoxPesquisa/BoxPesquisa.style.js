@@ -37,20 +37,29 @@ export const Pesquisa = styled.div`
   }
 
   .inputPesquisa {
-    width: 75%;
-    height: 40px;
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    form {
+      width: 75%;
+      height: 40px;
+      display: flex;
+      align-items: center;
 
-    background-color: #ffa75e;
-    opacity: 0.8;
+      background-color: #ffa75e;
+      opacity: 0.8;
 
-    border-radius: 12px;
-    margin-left: 10px;
+      border-radius: 12px;
+      margin-left: 10px;
 
-    input {
-      background-color: transparent;
-      border: none;
+      input {
+        background-color: transparent;
+        border: none;
+        height: 100%;
+        width: 80%;
+      }
     }
   }
 `;

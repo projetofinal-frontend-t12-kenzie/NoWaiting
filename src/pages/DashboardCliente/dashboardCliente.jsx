@@ -3,6 +3,7 @@ import ProdutosRecomendados from "../../components/DashboarCliente/BoxRecomendad
 import Produtos from "../../components/DashboarCliente/CardProduto/CardProduto";
 import Orders from "../../components/DashboarCliente/ClientOrders/ClientOrders.index";
 import Header from "../../components/DashboarCliente/Header/Header";
+import RegisterOrder from "../../components/DashboarCliente/InvoiceRegister";
 import ContainerLocalizacao from "../../components/DashboarCliente/Localização/localizacao";
 import Navbar from "../../components/DashboarCliente/Navbar/Navbar";
 import { ContainerDashboard } from "./dashboardCliente.styles";
@@ -18,6 +19,7 @@ const DashboardCliente = () => {
         <ProdutosRecomendados />
       </div>
       <Orders />
+
       <BoxPesquisa id="seach" />
     </ContainerDashboard>
   );

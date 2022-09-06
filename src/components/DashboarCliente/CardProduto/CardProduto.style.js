@@ -39,13 +39,13 @@ export const CardProdutos = styled.div`
   justify-content: space-evenly;
   align-items: center;
   flex-direction: row;
+  position: relative;
 
   width: 150px;
   height: 220px;
 
   background-image: url("https://images.pexels.com/photos/574111/pexels-photo-574111.jpeg?auto=compress&cs=tinysrgb&w=1600");
   border-radius: 12px;
-  padding: 3px;
 
   font-family: var(--font);
 
@@ -57,9 +57,17 @@ export const CardProdutos = styled.div`
     transition: 0.4s;
   }
 
+  img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: 12px;
+    opacity: 0.5;
+  }
+
   div {
     background-color: var(--grey-transparent);
-    padding: 5px 15px 5px 15px;
+    padding: 8px 0px 0 8px;
     border-radius: 12px;
     width: 150px;
     height: 100px;
@@ -71,22 +79,23 @@ export const CardProdutos = styled.div`
 
     position: relative;
     top: 45px;
+    gap: 10px;
   }
 
   h3 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     color: var(--grey-0);
   }
 
   p {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 200;
     color: var(--grey-0);
   }
 
   .categoria {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 800;
     color: var(--color-primary);
   }
