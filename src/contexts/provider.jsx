@@ -10,7 +10,7 @@ const ContextsProvider = ({ children }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const location = useLocation();
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState([]); 
   const [concludedOrders, setConcludedOrders] = useState([]);
 
   useEffect(() => {
@@ -21,15 +21,27 @@ const ContextsProvider = ({ children }) => {
     showMenu();
   }, []);
 
+    useEffect(() => {
+      api.get("/order")
+      .then((response) => setOrders(response.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  function check (order){
+    api.delete("/order", order.id)
+    .then((response) => {
+      console.log(response)
+      setOrders(response.data)
+      setConcludedOrders([...concludedOrders, order])
+    })
+    .catch((err) => console.log(err));
+  }
+
   async function loginUser(data) {
-    console.log(data);
     const response = await api
       .post("/login", data)
       .catch((error) => console.log(error));
-    console.log(response.data);
     const { accessToken, user } = response.data;
-    console.log(accessToken);
-    console.log(user);
 
     setUser(user);
     const idUser = user.id;
@@ -67,6 +79,7 @@ const ContextsProvider = ({ children }) => {
         setOrders,
         concludedOrders,
         setConcludedOrders,
+        check
       }}
     >
       {children}

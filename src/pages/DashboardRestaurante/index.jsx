@@ -21,18 +21,8 @@ import BuildOrderCard from "../../components/OrderCard/OrderCard";
 import { Contexts } from "../../contexts/provider";
 
 function DashboardRest() {
-  const { orders, setOrders, concludedOrders, setConcludedOrders } =
+  const { orders, concludedOrders } =
     useContext(Contexts);
-
-  useEffect(() => {
-    try {
-      api.get("/order").then((response) => setOrders(response.data));
-    } catch (err) {
-      console.log(err);
-    }
-  }, []);
-
-  useEffect(() => {});
 
   return (
     <DashboardRestContainer>
