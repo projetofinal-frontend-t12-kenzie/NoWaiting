@@ -1,13 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Logo from "./Logo.svg";
-import hamburguer from "./hamburguer.png";
+
 import usuario from "./usuario.png";
-import { AiOutlineCheck } from "react-icons/ai";
 import { DashboardRestContainer } from "../../components/DashboardRest/DashboardRestContainer.style";
 import { HeaderContainer } from "../../components/DashboardRest/HeaderContainer.style";
 import { RestProfile } from "../../components/DashboardRest/RestProfile.style";
 import { NonConcludedOrders } from "../../components/DashboardRest/NonConcludedOrders.style";
-import { OrderCard } from "../../components/DashboardRest/OrderCard.style";
 import { ConcludedOrders } from "../../components/DashboardRest/ConcludedOrders.style";
 import { OrdersContainer } from "../../components/DashboardRest/OrdersContainer.style";
 import { ConcludedOrderCard } from "../../components/DashboardRest/ConcludedOrderCard.style";
@@ -16,13 +14,11 @@ import { EmptyOrderCard } from "../../components/DashboardRest/EmptyOrderCard.st
 import { EmptyConcludedOrders } from "../../components/DashboardRest/EmptyConcludedOrders.style";
 import { DivAside } from "../../components/DashboardRest/DivAside.style";
 import { HeaderRest } from "../../components/DashboardRest/HeaderRest.style";
-import api from "../../services/api";
 import BuildOrderCard from "../../components/OrderCard/OrderCard";
 import { Contexts } from "../../contexts/provider";
 
 function DashboardRest() {
-  const { orders, concludedOrders } =
-    useContext(Contexts);
+  const { orders, concludedOrders, totalPrice } = useContext(Contexts);
 
   return (
     <DashboardRestContainer>
@@ -59,7 +55,7 @@ function DashboardRest() {
         </NonConcludedOrders>
         <DivAside>
           <h3>Pedidos concluídos</h3>
-          <ConcludedOrders>
+          {/* <ConcludedOrders>
             <ConcludedOrderCard>
               {concludedOrders.length > 0 ? (
                 concludedOrders.map((order) => (
@@ -71,15 +67,24 @@ function DashboardRest() {
                 </EmptyConcludedOrders>
               )}
             </ConcludedOrderCard>
-          </ConcludedOrders>
+          </ConcludedOrders> */}
           <TotalContainer>
             <div>
               <span>Total acumulado</span>
-              <strong>R$ 416,30</strong>
-            </div>
-            <div>
+              <p>
+                <strong>
+                  R$
+                  {/* {orders?.price.reduce(
+                    (previousValue, currentValue) =>
+                      previousValue + currentValue,
+                    totalPrice
+                  )} */}
+                </strong>
+              </p>
               <span>Total de pedidos</span>
-              <strong>8</strong>
+              <p>
+                <strong>{orders.length}</strong>
+              </p>
             </div>
           </TotalContainer>
         </DivAside>

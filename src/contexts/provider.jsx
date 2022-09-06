@@ -10,8 +10,9 @@ const ContextsProvider = ({ children }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const location = useLocation();
-  const [orders, setOrders] = useState([]); 
+  const [orders, setOrders] = useState([]);
   const [concludedOrders, setConcludedOrders] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     async function showMenu() {
@@ -21,20 +22,22 @@ const ContextsProvider = ({ children }) => {
     showMenu();
   }, []);
 
-    useEffect(() => {
-      api.get("/order")
+  useEffect(() => {
+    api
+      .get("/order")
       .then((response) => setOrders(response.data))
       .catch((err) => console.log(err));
   }, []);
 
-  function check (order){
-    api.delete("/order", order.id)
-    .then((response) => {
-      console.log(response)
-      setOrders(response.data)
-      setConcludedOrders([...concludedOrders, order])
-    })
-    .catch((err) => console.log(err));
+  function check(order) {
+    api
+      .delete("/order", order.id)
+      .then((response) => {
+        console.log(response);
+        setOrders(response.data);
+        setConcludedOrders([...concludedOrders, order]);
+      })
+      .catch((err) => console.log(err));
   }
 
   async function loginUser(data) {
@@ -79,7 +82,9 @@ const ContextsProvider = ({ children }) => {
         setOrders,
         concludedOrders,
         setConcludedOrders,
-        check
+        check,
+        totalPrice,
+        setTotalPrice,
       }}
     >
       {children}
