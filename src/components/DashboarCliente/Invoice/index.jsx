@@ -1,27 +1,30 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { SpaceBetween } from "../ClientOrders/ClientOrders.style";
 
-import { SpaceBetween } from "./ClientOrders/ClientOrders.style";
-import { InvoiceContainer } from "./style.js";
+import { ConfirmeInvoice } from "./style.js";
 
 const Invoice = () => {
   return (
-    <InvoiceContainer id="orders">
+    <ConfirmeInvoice className="invoice-done">
       <div className="invoice">
-        <div className="icon-done"></div>
-        <span className="description-done">Pronto!</span>
-        <span className="description-order-done">PEDIDO CONFIRMADO!</span>
+        <div className="icon-done one"></div>
+        <div className="icon-done two"></div>
+        <div className="container">
+          <span className="description-done">Pronto!</span>
+          <span className="description-order-done">PEDIDO CONFIRMADO!</span>
+        </div>
         <div className="invoice-amount">
           <SpaceBetween>
-            <span className="invoice-description">Subtotal</span>
+            <span className="subdescription">Subtotal</span>
             <span className="invoice-value">{`R$ ${27}.00`}</span>
           </SpaceBetween>
           <SpaceBetween>
-            <span className="invoice-description">Descontos</span>
+            <span className="subdescription">Descontos</span>
             <span className="invoice-value">{`-R$ ${5}.00`}</span>
           </SpaceBetween>
           <SpaceBetween>
-            <span className="invoice-description">Total de imposto</span>
+            <span className="subdescription">Total de imposto</span>
             <span className="invoice-value">{`R$ ${1}.00`}</span>
           </SpaceBetween>
         </div>
@@ -31,13 +34,11 @@ const Invoice = () => {
           <div className="rigth"></div>
         </div>
         <div className="invoice-total">
-          <SpaceBetween>
-            <span className="total">Total</span>
-            <span className="price">R$ 27.90</span>
-          </SpaceBetween>
+          <span className="total">Total</span>
+          <span className="price">R$ 27.90</span>
         </div>
       </div>
-    </InvoiceContainer>
+    </ConfirmeInvoice>
   );
 };
 
