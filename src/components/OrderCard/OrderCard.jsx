@@ -1,14 +1,22 @@
-function OrderCard() {
+import { useContext } from "react";
+import { Contexts } from "../../contexts/provider";
+import api from "../../services/api";
+import { OrderCard } from "../DashboardRest/OrderCard.style";
+
+function BuildOrderCard({ order }) {
+  /* const {handleOrder} = useContext(Contexts) */
+  console.log(order);
   return (
     <>
-      <div>
-        <span>Data, Hora</span>
-        <img src={hamburguer} alt="hamburguer" />
-        <h2>Hamburger</h2>
+      <OrderCard>
+        <img src={order.img} alt={order.name} />
+        <h2>{order.name}</h2>
         <span>Mesa 10</span>
-        <h3>R$ x,xx</h3>
+        <h3>R$ {order.price.toFixed(2)}</h3>
         <input type="checkbox" />
-      </div>
+      </OrderCard>
     </>
   );
 }
+
+export default BuildOrderCard;

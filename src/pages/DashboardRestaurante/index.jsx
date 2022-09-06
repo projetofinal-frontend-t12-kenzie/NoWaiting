@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Logo from "./Logo.svg";
 import hamburguer from "./hamburguer.png";
 import usuario from "./usuario.png";
@@ -17,15 +17,22 @@ import { EmptyConcludedOrders } from "../../components/DashboardRest/EmptyConclu
 import { DivAside } from "../../components/DashboardRest/DivAside.style";
 import { HeaderRest } from "../../components/DashboardRest/HeaderRest.style";
 import api from "../../services/api";
+import BuildOrderCard from "../../components/OrderCard/OrderCard";
+import { Contexts } from "../../contexts/provider";
 
 function DashboardRest() {
-  const [order, setOrder] = useState([]);
+  const { orders, setOrders, concludedOrders, setConcludedOrders } =
+    useContext(Contexts);
 
-  try {
-    api.get("/order").then((response) => console.log(response));
-  } catch (err) {
-    console.log(err);
-  }
+  useEffect(() => {
+    try {
+      api.get("/order").then((response) => setOrders(response.data));
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
+
+  useEffect(() => {});
 
   return (
     <DashboardRestContainer>
@@ -50,33 +57,29 @@ function DashboardRest() {
       <OrdersContainer>
         <NonConcludedOrders>
           <h3>Pedidos em espera</h3>
-          {}
-          {/* <EmptyOrderCard>
-            <p>Ainda não temos pedidos :(</p>
-          </EmptyOrderCard> */}
-          <OrderCard>
-            <span>Data, Hora</span>
-            <img src={hamburguer} alt="hamburguer" />
-            <h2>Hamburger</h2>
-            <span>Mesa 10</span>
-            <h3>R$ x,xx</h3>
-            <input type="checkbox" />
-          </OrderCard>
+          {orders.length > 0 ? (
+            orders.map((order) => (
+              <BuildOrderCard key={order.id} order={order} />
+            ))
+          ) : (
+            <EmptyOrderCard>
+              <p>Ainda não temos pedidos :(</p>
+            </EmptyOrderCard>
+          )}
         </NonConcludedOrders>
         <DivAside>
           <h3>Pedidos concluídos</h3>
           <ConcludedOrders>
-            {/* <EmptyConcludedOrders>
-            <p>Ainda não temos pedidos concluidos :(</p>
-          </EmptyConcludedOrders> */}
             <ConcludedOrderCard>
-              <img src={hamburguer} alt="img comida" />
-              <div className="divInfo">
-                <strong>Hamburguer</strong>
-                <span>Mesa 10</span>
-                <h2>R$ x,xx</h2>
-              </div>
-              <AiOutlineCheck size={24} />
+              {concludedOrders.length > 0 ? (
+                concludedOrders.map((order) => (
+                  <BuildOrderCard key={order.id} order={order} />
+                ))
+              ) : (
+                <EmptyConcludedOrders>
+                  <p>Ainda não temos pedidos concluidos :(</p>
+                </EmptyConcludedOrders>
+              )}
             </ConcludedOrderCard>
           </ConcludedOrders>
           <TotalContainer>
