@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { SpaceBetween } from "../ClientOrders/ClientOrders.style.js";
 
-import { SpaceBetween } from "./ClientOrders/ClientOrders.style";
 import { InvoiceContainer } from "./style.js";
 
 const RegisterOrder = () => {
@@ -12,8 +12,15 @@ const RegisterOrder = () => {
     console.log(data);
   };
 
+  const handleClose = () => {
+    console.log("closed");
+  };
+
   return (
-    <InvoiceContainer id="orders">
+    <InvoiceContainer classNam="settingInvoice">
+      <button className="close" onClick={() => handleClose()}>
+        X
+      </button>
       <div className="invoice">
         <form className="register" onSubmit={handleSubmit(onSubmit)}>
           <SpaceBetween>
@@ -49,7 +56,7 @@ const RegisterOrder = () => {
       </div>
       <div className="finish">
         <button className="send" type="submit">
-          Confirmar pedido
+          Imprimir
         </button>
       </div>
     </InvoiceContainer>
