@@ -20,12 +20,14 @@ function Register() {
 
   const [type, setType] = useState("password");
 
-  const {registerUser} = useContext(Contexts)
+  const { registerUser } = useContext(Contexts);
 
   return (
     <RegisterContainer>
       <RegisterForm onSubmit={handleSubmit(registerUser)}>
-        <a href="/login" className="btnCloseRegister">X</a>
+        <a href="/login" className="btnCloseRegister">
+          X
+        </a>
         <h2>Cadastre-se</h2>
         <input
           type="text"
@@ -44,20 +46,19 @@ function Register() {
         {errors.email && <span>{errors.email?.message}</span>}
 
         <div className="container">
-
-        <input
-          type={type}
-          placeholder="Senha"
-          id="password"
-          {...register("password")}
-        />
-        <div className="eye">
-        {type === "password" ? (
-          <EyeFilled onClick={() => setType("text")} />
-        ) : (
-          <EyeInvisibleFilled onClick={() => setType("password")} />
-        )}
-        </div>
+          <input
+            type={type}
+            placeholder="Senha"
+            id="password"
+            {...register("password")}
+          />
+          <div className="eye">
+            {type === "password" ? (
+              <EyeFilled onClick={() => setType("text")} />
+            ) : (
+              <EyeInvisibleFilled onClick={() => setType("password")} />
+            )}
+          </div>
         </div>
         {errors.password && <span>{errors.password?.message}</span>}
 
