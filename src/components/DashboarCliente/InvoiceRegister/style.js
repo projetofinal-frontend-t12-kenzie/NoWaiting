@@ -99,11 +99,11 @@ export const InvoiceContainer = styled.div`
     left: 1178px;
     top: 900px;
 
-    background: #fa7b12;
+    background: #ffffff;
     border-radius: 10px;
     border: none;
 
-    color: #ffffff;
+    color: #fa7b12;
 
     font-size: 16px;
   }

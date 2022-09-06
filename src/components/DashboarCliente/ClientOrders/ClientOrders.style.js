@@ -59,6 +59,10 @@ export const OrderContainer = styled.div`
 
       gap: 5px;
 
+      button {
+        cursor: pointer;
+      }
+
       ::-webkit-scrollbar {
         display: none;
       }
