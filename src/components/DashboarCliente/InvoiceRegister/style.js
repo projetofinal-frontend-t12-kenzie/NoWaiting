@@ -1,48 +1,130 @@
 import styled from "styled-components";
 
 export const InvoiceContainer = styled.div`
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: relative;
+  position: absolute;
 
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 115%;
+
+  top: 0;
+  right: -9px;
+
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.8);
+
+  font-family: "Inter";
+  font-style: normal;
+
+  z-index: 3;
+
+  .close {
+    position: relative;
+
+    bottom: 400px;
+    left: 122px;
+
+    z-index: 1;
+
+    background: transparent;
+    color: #fa7b12;
+
+    border: none;
+
+    font-size: 20px;
+  }
 
   .invoice {
-    height: 207px;
+    height: 222px;
     position: relative;
-    right: 21px;
-    top: -18px;
-    width: 70%;
 
-    .register-name {
+    width: 77%;
+    right: 18px;
+
+    bottom: 262px;
+
+    .register {
       display: flex;
       justify-content: space-evenly;
       flex-direction: column;
 
       background-color: #ffffff;
-      height: 110px;
+      height: 150px;
       position: relative;
       width: 100%;
       margin: 0px;
-      border-radius: 20px 20px 0px 0px;
+      border-radius: 5px;
       padding: 0 20px 10px 20px;
 
       font-size: 14px;
       font-weight: 600;
+
+      .name {
+        display: flex;
+
+        width: 100%;
+
+        gap: 10px;
+
+        .container {
+          width: 220px;
+
+          gap: 5px;
+
+          border-bottom: 1px solid #000;
+
+          .setName {
+            border: none;
+            outline: 0;
+          }
+
+          .icon-name {
+            font-weight: 300;
+            font-size: 15px;
+            line-height: 18px;
+          }
+        }
+      }
+
+      .table {
+        display: flex;
+
+        width: 100%;
+
+        gap: 10px;
+
+        .container {
+          width: 220px;
+
+          gap: 5px;
+
+          border-bottom: 1px solid #000;
+
+          .setTable {
+            border: none;
+            outline: 0;
+          }
+
+          .icon-table {
+            font-weight: 300;
+            font-size: 15px;
+            line-height: 18px;
+          }
+        }
+      }
     }
 
     .invoice-cut {
       .left {
         position: absolute;
-        width: 40px;
-        height: 40px;
-        border-radius: 40px;
+        width: 15px;
+        height: 30px;
+        border-radius: 0px 30px 30px 0px;
         background-color: var(--grey-3);
-        top: 101px;
-        left: -26px;
+        top: 147px;
         z-index: 1;
       }
 
@@ -50,17 +132,17 @@ export const InvoiceContainer = styled.div`
         margin: 0px;
         width: 200px;
         background-color: #000;
-        height: 4px;
+        height: 2px;
       }
 
       .rigth {
         position: absolute;
-        width: 40px;
-        height: 40px;
-        border-radius: 40px;
+        width: 15px;
+        height: 30px;
+        border-radius: 30px 0px 0px 30px;
         background-color: var(--grey-3);
-        top: 101px;
-        right: -64px;
+        top: 147px;
+        right: -40px;
         z-index: 1;
       }
     }
@@ -68,24 +150,26 @@ export const InvoiceContainer = styled.div`
     .invoice-total {
       flex-direction: column;
       background-color: #ffffff;
-      height: 40px;
+      height: 50px;
       position: relative;
       width: 100%;
       margin: 0px;
-      border-radius: 0px 0px 20px 20px;
+      border-radius: 5px;
       padding: 10px 20px 0 20px;
 
       div {
-        margin-top: 10px;
+        margin-top: 15px;
         font-size: 15px;
         font-weight: 600;
       }
     }
   }
   .finish {
+    display: flex;
+
     position: absolute;
-    top: 505px;
-    right: 12px;
+    bottom: 614px;
+    right: 9px;
 
     @media screen and (min-width: 1300px) {
       right: 30px;

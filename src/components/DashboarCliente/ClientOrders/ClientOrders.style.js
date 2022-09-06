@@ -7,7 +7,6 @@ export const OrderContainer = styled.div`
   position: relative;
 
   width: 430px;
-  /* min-height: 100%; */
 
   padding: 10px;
 
@@ -27,7 +26,7 @@ export const OrderContainer = styled.div`
     align-items: center;
 
     width: 100%;
-    height: 48%;
+    height: 50%;
 
     .header {
       width: 100%;
@@ -150,26 +149,20 @@ export const OrderContainer = styled.div`
 
             border-radius: 1px;
             border: none;
+
+            margin: 0 auto;
           }
         }
       }
     }
-  }
-  #total {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-
-    width: 100%;
-    height: 48%;
 
     .invoice {
-      height: 207px;
+      height: 222px;
       position: relative;
-      right: 21px;
-      top: -18px;
-      width: 70%;
+
+      width: 77%;
+
+      right: 18px;
 
       .invoice-amount {
         display: flex;
@@ -177,11 +170,11 @@ export const OrderContainer = styled.div`
         flex-direction: column;
 
         background-color: #ffffff;
-        height: 110px;
+        height: 120px;
         position: relative;
         width: 100%;
         margin: 0px;
-        border-radius: 20px 20px 0px 0px;
+        border-radius: 5px;
         padding: 0 20px 10px 20px;
 
         font-size: 14px;
@@ -191,12 +184,11 @@ export const OrderContainer = styled.div`
       .invoice-cut {
         .left {
           position: absolute;
-          width: 40px;
-          height: 40px;
-          border-radius: 40px;
+          width: 15px;
+          height: 30px;
+          border-radius: 0px 30px 30px 0px;
           background-color: var(--grey-3);
-          top: 101px;
-          left: -26px;
+          top: 116px;
           z-index: 1;
         }
 
@@ -209,12 +201,12 @@ export const OrderContainer = styled.div`
 
         .rigth {
           position: absolute;
-          width: 40px;
-          height: 40px;
-          border-radius: 40px;
+          width: 15px;
+          height: 30px;
+          border-radius: 30px 0px 0px 30px;
           background-color: var(--grey-3);
-          top: 101px;
-          right: -64px;
+          top: 116px;
+          right: -40px;
           z-index: 1;
         }
       }
@@ -226,7 +218,7 @@ export const OrderContainer = styled.div`
         position: relative;
         width: 100%;
         margin: 0px;
-        border-radius: 0px 0px 20px 20px;
+        border-radius: 5px;
         padding: 10px 20px 0 20px;
 
         div {
@@ -234,17 +226,6 @@ export const OrderContainer = styled.div`
           font-size: 15px;
           font-weight: 600;
         }
-      }
-    }
-
-    .finish {
-      position: absolute;
-      top: 505px;
-      right: 12px;
-
-      @media screen and (min-width: 1300px) {
-        right: 30px;
-        top: 510px;
       }
     }
 
@@ -270,4 +251,14 @@ export const SpaceBetween = styled.div`
   justify-content: space-between;
 
   width: 100%;
+
+  .subdescription {
+    opacity: 60%;
+    font-weight: 400;
+    line-height: 19px;
+  }
+  .total {
+    font-weight: 400;
+    line-height: 19px;
+  }
 `;

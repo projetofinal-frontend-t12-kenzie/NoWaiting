@@ -1,84 +1,154 @@
 import styled from "styled-components";
 
-export const InvoiceContainer = styled.div`
-  display: none;
+export const ConfirmeInvoice = styled.div`
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: relative;
+  position: absolute;
 
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 115%;
+
+  top: 0;
+  right: -9px;
+
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.8);
+
+  font-family: "Inter";
+  font-style: normal;
+
+  z-index: 3;
 
   .invoice {
-    height: 207px;
-    position: relative;
-    right: 21px;
-    top: -18px;
-    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
 
-    .register-name {
+    background-color: #ffffff;
+    height: 400px;
+    position: relative;
+    width: 77%;
+    margin: 0px;
+    border-radius: 5px;
+    padding: 0 20px 10px 20px;
+
+    .icon-done.one {
+      position: absolute;
+
+      background: #4caf50;
+
+      border-radius: 50%;
+
+      bottom: 378px;
+      left: 96px;
+
+      height: 80px;
+      width: 80px;
+    }
+
+    .icon-done.two {
+      position: absolute;
+
+      background: #4caf50;
+
+      border-radius: 50%;
+
+      bottom: 369px;
+      left: 86px;
+
+      height: 100px;
+      width: 100px;
+
+      opacity: 40%;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      width: 90%;
+      height: 70px;
+
+      gap: 20px;
+
+      .description-done {
+        color: #4caf50;
+
+        padding-left: 23px;
+      }
+
+      .description-order-done {
+        padding-left: 23px;
+      }
+    }
+
+    .invoice-amount {
       display: flex;
       justify-content: space-evenly;
       flex-direction: column;
 
-      background-color: #ffffff;
-      height: 110px;
-      position: relative;
+      height: 120px;
+
       width: 100%;
-      margin: 0px;
-      border-radius: 20px 20px 0px 0px;
-      padding: 0 20px 10px 20px;
-
-      font-size: 14px;
-      font-weight: 600;
     }
-
     .invoice-cut {
       .left {
         position: absolute;
-        width: 40px;
-        height: 40px;
-        border-radius: 40px;
+        width: 15px;
+        height: 30px;
+        border-radius: 0px 30px 30px 0px;
         background-color: var(--grey-3);
-        top: 101px;
-        left: -26px;
+        top: 288px;
+        left: 0px;
         z-index: 1;
       }
 
       .line {
+        position: absolute;
         margin: 0px;
-        width: 200px;
+        width: 270px;
+        bottom: 106px;
+        left: 10px;
         background-color: #000;
         height: 4px;
       }
 
       .rigth {
         position: absolute;
-        width: 40px;
-        height: 40px;
-        border-radius: 40px;
+        width: 15px;
+        height: 30px;
+        border-radius: 30px 0px 0px 30px;
         background-color: var(--grey-3);
-        top: 101px;
-        right: -64px;
+        top: 288px;
+        right: 0px;
         z-index: 1;
       }
     }
 
     .invoice-total {
-      flex-direction: column;
-      background-color: #ffffff;
-      height: 40px;
-      position: relative;
-      width: 100%;
-      margin: 0px;
-      border-radius: 0px 0px 20px 20px;
-      padding: 10px 20px 0 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-      div {
-        margin-top: 10px;
-        font-size: 15px;
-        font-weight: 600;
+      flex-direction: column;
+
+      .total {
+        opacity: 60%;
+        font-weight: 400;
+        line-height: 19px;
+        margin-bottom: 10px;
+      }
+
+      .price {
+        font-size: 25px;
+        font-weight: 400;
+        line-height: 19px;
+
+        color: #fa7b12;
       }
     }
   }
@@ -103,7 +173,7 @@ export const InvoiceContainer = styled.div`
     border-radius: 10px;
     border: none;
 
-    color:   #fa7b12;
+    color: #fa7b12;
 
     font-size: 16px;
   }
