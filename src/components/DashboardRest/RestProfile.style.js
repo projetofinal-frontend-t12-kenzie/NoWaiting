@@ -6,7 +6,7 @@ export const RestProfile = styled.div`
   align-items: center;
   gap: 5px;
 
-  img{
+  img {
     width: 40px;
   }
 
@@ -25,5 +25,9 @@ export const RestProfile = styled.div`
   }
   .btnLogOut:hover {
     background-color: var(--color-primary-focused);
+  }
+
+  @media screen and (max-width: 426px) {
+    flex-direction: column;
   }
 `;

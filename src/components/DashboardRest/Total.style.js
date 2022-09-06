@@ -5,8 +5,8 @@ export const TotalContainer = styled.div`
   flex-direction: column;
   width: 90%;
   padding: 0 50px;
-  margin: 20px 0;
-  margin-left: 5%;
+  margin: 20px 20px;
+
   margin-top: 20px;
 
   border: 2px solid var(--grey-1);
@@ -26,15 +26,15 @@ export const TotalContainer = styled.div`
     font-weight: bold;
   }
 
-  strong{
+  strong {
     display: flex;
     font-size: 16px;
     font-family: "Roboto";
     font-weight: medium;
   }
 
-  @media screen and (min-width: 769px){
-    width: 81%;
+  @media screen and (min-width: 769px) {
+    width: 92%;
     padding: 0 30px;
   }
 `;
