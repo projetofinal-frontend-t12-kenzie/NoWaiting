@@ -13,9 +13,8 @@ const RoutesMain = () => {
       <Route path="/menu" element={<DashboardCliente />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/dashboard/" element={<DashboardRestaurante />} />
       <Route element={<AuthRoutes />}>
-        {/* <Route path="/dashboard/:id" element={<DashboardRestaurante />}/> */}
+        <Route path="/dashboard/:id" element={<DashboardRestaurante />}/>
       </Route>
       <Route path="*" element={<Navigate replace to="/intro" />} />
     </Routes>

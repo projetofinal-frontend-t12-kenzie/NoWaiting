@@ -4,9 +4,10 @@ import {
 } from "../../components/Login/Login.style.js";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { EyeFilled, EyeInvisibleFilled } from "@ant-design/icons";
 import { schema } from "../../validators/login.js";
+import { Contexts } from "../../contexts/provider.jsx";
 
 function Login() {
   const [type, setType] = useState("password");
@@ -19,18 +20,11 @@ function Login() {
     resolver: yupResolver(schema),
   });
 
-  function handleLogin(data) {
-    try {
-      console.log(data);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
+  const { loginUser } = useContext(Contexts);
   return (
     <LoginContainer>
       <div>
-        <LoginForm onSubmit={handleSubmit(handleLogin)}>
+        <LoginForm onSubmit={handleSubmit(loginUser)}>
           <h2>Login</h2>
           <input
             type="text"

@@ -9,27 +9,8 @@ const ContextsProvider = ({ children }) => {
   const [filtered, setFiltered] = useState("");
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  const [token, setToken] = useState(null);
-  const [loading, setLoading] = useState(true);
   const location = useLocation();
 
-  // useEffect(()=>{
-  //   async function loadUser() {
-  //     if(token){
-  //       try{
-
-  //         api.defaults.headers.authorization = `Bearer ${token}`;
-  //         const { data } = await api.get('/profile');
-  //         setUser(data);
-
-  //       }
-  //       catch(err){console.log(err)}
-  //     }
-  //     setLoading(false)
-  //   }
-
-  //   loadUser()
-  // },[token])
 
   useEffect(() => {
     async function showMenu() {
@@ -38,6 +19,28 @@ const ContextsProvider = ({ children }) => {
     }
     showMenu();
   }, []);
+
+  async function loginUser(data) {
+    console.log(data);
+    const response = await api.post('/login', data).catch(error => console.log(error));
+    console.log(response.data)
+    const {accessToken, user} = response.data; 
+    console.log(accessToken)
+    console.log(user)
+
+    setUser(user)
+    const idUser = user.id
+    api.defaults.headers.authorization = `Bearer ${accessToken}`
+
+    const toNavigate = location.state?.from?.pathname || `/dashboard/${idUser}`
+
+    if(accessToken!==null){
+      localStorage.setItem('@nowaiting:token', accessToken)
+      if(localStorage.getItem('@nowaiting:token')!==null){
+        navigate(toNavigate, { replace: true });
+      }
+    }
+  }
 
   async function registerUser(data) {
     console.log(data);
@@ -50,12 +53,13 @@ const ContextsProvider = ({ children }) => {
     <Contexts.Provider
       value={{
         // colocar funções aqui
+        loginUser,
         registerUser,
-        loading,
         menu,
         setMenu,
         filtered,
         setFiltered,
+        user
       }}
     >
       {children}
