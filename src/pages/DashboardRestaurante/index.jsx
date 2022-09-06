@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "./Logo.svg";
 import hamburguer from "./hamburguer.png";
 import usuario from "./usuario.png";
@@ -16,31 +16,41 @@ import { EmptyOrderCard } from "../../components/DashboardRest/EmptyOrderCard.st
 import { EmptyConcludedOrders } from "../../components/DashboardRest/EmptyConcludedOrders.style";
 import { DivAside } from "../../components/DashboardRest/DivAside.style";
 import { HeaderRest } from "../../components/DashboardRest/HeaderRest.style";
+import api from "../../services/api";
 
 function DashboardRest() {
+  const [order, setOrder] = useState([]);
+
+  try {
+    api.get("/order").then((response) => console.log(response));
+  } catch (err) {
+    console.log(err);
+  }
+
   return (
     <DashboardRestContainer>
       <HeaderContainer>
         <HeaderRest>
-        <header>
-          <img src={Logo} alt="NoWaiting"></img>
-        </header>
-        <RestProfile>
-          <img src={usuario} alt="img restaurante" />
-          <div>
-            <h4>Kenzinho</h4>
-          </div>
-          <div>
-            <button className="btnLogOut" type="button">
-              Sair
-            </button>
-          </div>
-        </RestProfile>
+          <header>
+            <img src={Logo} alt="NoWaiting"></img>
+          </header>
+          <RestProfile>
+            <img src={usuario} alt="img restaurante" />
+            <div>
+              <h4>Kenzinho</h4>
+            </div>
+            <div>
+              <button className="btnLogOut" type="button">
+                Sair
+              </button>
+            </div>
+          </RestProfile>
         </HeaderRest>
-      </HeaderContainer>  
+      </HeaderContainer>
       <OrdersContainer>
         <NonConcludedOrders>
-        <h3>Pedidos em espera</h3>
+          <h3>Pedidos em espera</h3>
+          {}
           {/* <EmptyOrderCard>
             <p>Ainda não temos pedidos :(</p>
           </EmptyOrderCard> */}
