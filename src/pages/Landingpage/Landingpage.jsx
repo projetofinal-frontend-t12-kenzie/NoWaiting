@@ -40,16 +40,20 @@ const Landingpage = ()=>{
                 </Clickable> 
             </DivWellcome>
             <DivSelection>
+                <a href="/login">
                 <DivRestaurante>
                     <Restaurante>
                         Restaurante
                     </Restaurante>
                 </DivRestaurante>
+                </a>
+                <a href="/menu">
                 <DivFregues>
                     <Cliente>
                         Cliente
                     </Cliente>
                 </DivFregues>
+                </a>
             </DivSelection>
             <div id="down"></div>
         </LpagerContainer>

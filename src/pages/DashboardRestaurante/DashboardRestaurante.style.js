@@ -4,30 +4,22 @@ export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-around;
 
-  max-width: 99%;
+  width: 100%;
   height: 100vh;
 
   margin: 0 auto;
-  margin: 50px 15px 0px 15px;
 
   background-color: rgb(43 43 43 / 2%);
-
-  @media screen and (max-width: 1400px) {
-    justify-content: space-between;
-    width: 80%;
-    margin: 0 auto;
-  }
 
   .navbar-esquerda {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
 
-    width: 180px;
-    height: 95vh;
+    width: 15%;
+    height: 100vh;
 
     background-color: #141414;
 
@@ -35,21 +27,13 @@ export const Container = styled.div`
 
     position: relative;
 
-    @media screen and (max-width: 1120px) {
-      width: 50px;
-      span {
-        display: none;
-      }
-    }
-
     .logo {
-      width: 195px;
+      display: flex;
+      width: 72px;
       padding-bottom: 20px;
       border-bottom: 1px solid var(--grey-2);
-
-      @media screen and (max-width: 1120px) {
-        display: none;
-      }
+      justify-content: center;
+      align-items: center;
     }
     .menu {
       display: flex;
@@ -149,30 +133,10 @@ export const Dashboard = styled.section`
   flex-direction: column;
   align-items: stretch;
 
-  width: 60%;
+  width: 62%;
   height: inherit;
 
-  margin-left: 20px;
-
-  @media screen and (max-width: 1400px) {
-    width: 40%;
-
-    position: absolute;
-    left: 360px;
-  }
-  @media screen and (max-width: 1150px) {
-    width: 40%;
-
-    position: absolute;
-    left: 320px;
-  }
-  @media screen and (max-width: 1120px) {
-    position: absolute;
-    left: 200px;
-  }
-  @media screen and (max-width: 920px) {
-    left: 160px;
-  }
+  margin-left: 50px;
 
   header {
     width: 100%;
@@ -321,6 +285,7 @@ export const Dashboard = styled.section`
     color: var(--grey-3);
 
     margin-top: 40px;
+    margin-bottom: 40px;
   }
 
   .pedidos {
@@ -344,13 +309,6 @@ export const Dashboard = styled.section`
       display: none;
     }
 
-    @media screen and (max-width: 1400px) {
-      width: 35vw;
-    }
-    @media screen and (max-width: 1350px) {
-      flex-direction: column;
-      width: 56%;
-    }
     form {
       display: flex;
       justify-content: flex-end;
@@ -489,20 +447,9 @@ export const Dashboard = styled.section`
 export const Navbardir = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 
-  width: 300px;
-
-  @media screen and (max-width: 1400px) {
-    width: 220px;
-    padding: 20px;
-  }
-  @media screen and (max-width: 1350px) {
-    align-items: center;
-  }
-  @media screen and (max-width: 920px) {
-    width: 180px;
-  }
+  width: 20%;
 
   .avatar {
     display: flex;
@@ -513,25 +460,6 @@ export const Navbardir = styled.div`
     gap: 20px;
 
     position: relative;
-
-    @media screen and (max-width: 1400px) {
-      width: 520px;
-    }
-    @media screen and (max-width: 1350px) {
-      width: 146px;
-      height: 94px;
-      flex-direction: column;
-      button {
-        position: absolute;
-        left: 10px;
-        svg {
-          width: 20px;
-        }
-      }
-    }
-    @media screen and (max-width: 1150px) {
-      margin-top: 80px;
-    }
 
     &:hover {
       transform: scale(1.02);
