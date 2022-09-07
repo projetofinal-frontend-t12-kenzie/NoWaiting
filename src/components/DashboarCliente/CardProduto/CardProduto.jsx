@@ -1,12 +1,32 @@
 import { CardProdutos, ContainerProdutos } from "./CardProduto.style";
 import { BsCart2 } from "react-icons/bs";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Contexts } from "../../../contexts/provider";
 import { useState } from "react";
 
 const Produtos = () => {
-  const { menu, filtered } = useContext(Contexts);
-  console.log(menu);
+  const { menu, filtered, orders, setOrder } = useContext(Contexts);
+
+  const addedproduct = (produto) => {
+    let confirmAmount = false;
+
+    if (orders.length > 0) {
+      orders?.forEach((item) => {
+        if (produto.id === item.id) {
+          return (confirmAmount = true);
+        }
+      });
+    }
+    if (confirmAmount) {
+      alert("Já existe nos Pedidos");
+    } else {
+      const objOrder = {
+        amount: 1,
+        ...produto,
+      };
+      setOrder([...orders, objOrder]);
+    }
+  };
 
   // const [currentSale, setCurrentSale] = useState([]);
 
@@ -30,7 +50,7 @@ const Produtos = () => {
                 <p>{produto.description}</p>
                 <span className="categoria">{produto.type}</span>
                 <span>R$ {produto.price}.00</span>
-                <button onClick={() => handleClick(produto.id)}>
+                <button onClick={() => addedproduct(produto)}>
                   <BsCart2 size={15} />
                 </button>
               </div>

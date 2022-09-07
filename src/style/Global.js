@@ -19,6 +19,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+  box-sizing: border-box;
 }
 
 article, aside, details, figcaption, figure, 
@@ -63,6 +64,7 @@ html {
     --grey-1:#D9D9D9;
     --grey-0:#FFFFFF;
     --grey-transparent: rgba(255, 255, 255, 0.4);
+    --box-shadow: 0 4px 4px 0 #00000080;
     --success:#4CAF50;
     --negative:#BF2D2D;
     --font: Inter;
@@ -72,4 +74,3 @@ html {
     --headline-italic: italic 12px;
     --border-radius: 4px;
 }`;
-
