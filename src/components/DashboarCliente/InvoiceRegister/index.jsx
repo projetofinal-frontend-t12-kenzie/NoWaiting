@@ -13,7 +13,9 @@ const RegisterOrder = ({
   const [name, setName] = useState(null);
   const [table, setTable] = useState(null);
 
-  const { currentAmout } = useContext(Contexts);
+  const { currentAmout, orders } = useContext(Contexts);
+
+  console.log(orders);
 
   const onChangeName = (data) => {
     setName(data);

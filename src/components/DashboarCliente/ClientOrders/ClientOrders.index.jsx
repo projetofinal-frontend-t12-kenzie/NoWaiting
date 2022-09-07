@@ -5,6 +5,19 @@ import RegisterOrder from "../InvoiceRegister";
 
 import { OrderContainer, SpaceBetween } from "./ClientOrders.style";
 
+// const order = {
+//   order:
+//     {
+//       amount: 1,
+//       ...produto,
+//     },
+
+//   clientRegister: {
+//     name,
+//     table,
+//   };
+// }
+
 const Orders = () => {
   const { orders, setOrder, currentAmout, calculatingTotalValue } =
     useContext(Contexts);
