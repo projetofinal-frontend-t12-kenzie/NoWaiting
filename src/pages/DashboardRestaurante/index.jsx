@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Logo from "./Logo.svg";
 import { DashboardRestContainer } from "../../components/DashboardRest/DashboardRestContainer.style";
 import { HeaderContainer } from "../../components/DashboardRest/HeaderContainer.style";
@@ -12,8 +12,11 @@ import { HeaderRest } from "../../components/DashboardRest/HeaderRest.style";
 import BuildOrderCard from "../../components/OrderCard/OrderCard";
 import { Contexts } from "../../contexts/provider";
 function DashboardRest() {
-  const { orders, logOut, user } = useContext(Contexts);
+  const { orders, logOut, user, findOrders } = useContext(Contexts);
 
+  useEffect(() => {
+    findOrders();
+  }, []);
   return (
     <DashboardRestContainer>
       <HeaderContainer>
@@ -45,8 +48,8 @@ function DashboardRest() {
         <NonConcludedOrders>
           <h3>Pedidos em espera</h3>
           {orders.length > 0 ? (
-            orders.map((order) => (
-              <BuildOrderCard key={order.id} order={order} />
+            orders.map((pedido) => (
+              <BuildOrderCard key={pedido.id} order={pedido} />
             ))
           ) : (
             <EmptyOrderCard>
