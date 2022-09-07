@@ -27,6 +27,20 @@ const ContextsProvider = ({ children }) => {
   const [currentAmout, setCurrent] = useState(invoice);
   const [concludedOrders, setConcludedOrders] = useState([]);
 
+  const [order, setOrder] = useState([]);
+  const findOrders = () => {
+    api
+      .get("/order")
+      .then((response) => setOrder(response.data))
+      .catch((err) => console.log(err));
+    const res = [];
+    for (const keys of order) {
+      keys.pedido.forEach((element) => res.push(element));
+    }
+    setOrders(res);
+    return res;
+  };
+
   useEffect(() => {
     async function showMenu() {
       const response = await api.get("/menu");
@@ -37,10 +51,7 @@ const ContextsProvider = ({ children }) => {
   }, [request]);
 
   useEffect(() => {
-    api
-      .get("/order")
-      .then((response) => setOrders(response.data))
-      .catch((err) => console.log(err));
+    findOrders();
   }, []);
 
   function check(order) {
@@ -48,10 +59,11 @@ const ContextsProvider = ({ children }) => {
       .delete("/order", order.id)
       .then((response) => {
         console.log(response);
-        setOrders(response.data);
+        setOrder(response.data);
         setConcludedOrders([...concludedOrders, order]);
       })
       .catch((err) => console.log(err));
+    findOrders();
   }
 
   async function loginUser(data) {
@@ -111,7 +123,7 @@ const ContextsProvider = ({ children }) => {
   };
 
   async function sendRequest(data) {
-    const response = await api.post("/order", data);
+    await api.post("/order", data);
   }
 
   const handleOpenCart = () => {
@@ -157,6 +169,7 @@ const ContextsProvider = ({ children }) => {
         sendRequest,
         handleOpenCart,
         handleApp,
+        findOrders,
       }}
     >
       {children}
