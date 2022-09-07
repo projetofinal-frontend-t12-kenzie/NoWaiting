@@ -13,8 +13,9 @@ export const NonConcludedOrders = styled.div`
   @media screen and (min-width: 769px) {
     width: 80%;
     max-height: 500px;
-    margin: 20px;
+    margin: 0px 20px 20px 20px;
   }
+
   overflow-y: scroll;
   ::-webkit-scrollbar {
     display: none;
