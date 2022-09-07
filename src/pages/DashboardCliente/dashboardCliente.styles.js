@@ -19,16 +19,19 @@ export const ContainerDashboard = styled.div`
     width: 100vw;
     height: 105vh;
   }
-  .bodyList {
-    width: 100vw;
-    height: 100%;
+  .app {
+    min-width: 60vw;
+    max-width: 100vw;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+
+    overflow: none;
 
     @media screen and (min-width: 750px) {
-      width: 95%;
+      width: 70%;
     }
   }
 `;

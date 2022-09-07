@@ -34,7 +34,30 @@ export const HeaderConteiner = styled.section`
     height: 50px;
   }
 
-  .atalho {
+  .notification {
+    text-align: center;
+    color: white;
+    font-family: var(--font);
+    font-size: 10px;
+    font-weight: 700;
+
+    display: flex;
+    justify-content: center;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: black;
+
+    position: bsolute;
+    /* top:;
+    left:; */
+
+    @media screen and (min-width: 1000px) {
+      display: none;
+    }
+  }
+
+  .cart {
     display: block;
     background-color: transparent;
     border: none;
@@ -80,5 +103,11 @@ export const BarraPesquisa = styled.div`
   input {
     background-color: transparent;
     border: none;
+    width: 85%;
+
+    ::placeholder {
+      color: #ffff;
+      font-family: var(--font);
+    }
   }
 `;

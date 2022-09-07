@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Contexts } from "../../../contexts/provider";
 import Invoice from "../Invoice";
 import RegisterOrder from "../InvoiceRegister";
@@ -6,7 +6,7 @@ import RegisterOrder from "../InvoiceRegister";
 import { OrderContainer, SpaceBetween } from "./ClientOrders.style";
 
 const Orders = () => {
-  const { orders, setOrder, currentAmout, calculatingTotalValue } =
+  const { request, setRequest, currentAmout, calculatingTotalValue } =
     useContext(Contexts);
   const [tempList, setTempList] = useState([]);
 
@@ -16,7 +16,7 @@ const Orders = () => {
 
   const handleOrder = (item, action) => {
     if (action === "add") {
-      orders?.forEach((product) => {
+      request?.forEach((product) => {
         if (product.id === item.id) {
           product.amount += 1;
           setTempList([...tempList, product]);
@@ -24,13 +24,15 @@ const Orders = () => {
       });
       calculatingTotalValue();
     } else {
-      orders?.forEach((product) => {
+      request?.forEach((product) => {
         if (product.id === item.id) {
           product.amount -= 1;
           if (product.amount === 0) {
             product.amount -= 1;
-            const newList = orders?.filter((product) => product.id !== item.id);
-            setOrder(newList);
+            const newList = request?.filter(
+              (product) => product.id !== item.id
+            );
+            setRequest(newList);
           } else {
             setTempList([...tempList, product]);
           }
@@ -41,18 +43,40 @@ const Orders = () => {
   };
 
   const handleConfirmOrder = () => {
-    console.log("pedido confirmado");
     setOrderList(false);
     setTimeout(() => {
       setRegisterOrder(true);
     }, 200);
   };
 
-  const handlePrintInvoice = () => {
-    console.log("invoice");
-    setRegisterOrder(false);
+  const handleConfirmOrderMobile = () => {
+    setOrderList(false);
+    setRegisterOrder(true);
     setTimeout(() => {
-      setInvoice(true);
+      const invoiceRegister = document.getElementById("settingInvoice");
+      invoiceRegister.style.display = "block";
+      invoiceRegister.style.position = "absolute";
+      invoiceRegister.style.width = "100%";
+      invoiceRegister.style.height = "100%";
+      console.log(invoiceRegister);
+    }, 200);
+  };
+
+  const handlePrintInvoice = () => {
+    setRegisterOrder(false);
+    setInvoice(true);
+  };
+
+  const handlePrintInvoiceMobile = () => {
+    setRegisterOrder(false);
+    setInvoice(true);
+    setTimeout(() => {
+      const invoice = document.getElementById("invoice-done");
+      invoice.style.display = "block";
+      invoice.style.position = "absolute";
+      invoice.style.width = "100%";
+      invoice.style.height = "100%";
+      console.log(invoice);
     }, 200);
   };
 
@@ -71,6 +95,7 @@ const Orders = () => {
           setOrderList={setOrderList}
           setInvoice={setInvoice}
           handlePrintInvoice={handlePrintInvoice}
+          handlePrintInvoiceMobile={handlePrintInvoiceMobile}
         />
       )}
       {ordering && (
@@ -80,7 +105,7 @@ const Orders = () => {
               <h2 className="title header">Pedidos</h2>
             </header>
             <ul className="list orders">
-              {orders.map((item) => {
+              {request.map((item) => {
                 return (
                   <li className="order" id={item.id} key={item.id}>
                     <div className="img">
@@ -122,7 +147,9 @@ const Orders = () => {
                 </SpaceBetween>
                 <SpaceBetween>
                   <span className="subdescription">Descontos</span>
-                  <span className="value">{`- R$ ${currentAmout.descount}.00`}</span>
+                  <span className="value">{`- R$ ${currentAmout.descount?.toFixed(
+                    0
+                  )}.00`}</span>
                 </SpaceBetween>
                 <SpaceBetween>
                   <span className="subdescription">Total de imposto</span>
@@ -131,11 +158,8 @@ const Orders = () => {
                   )}`}</span>
                 </SpaceBetween>
               </div>
-              <div className="invoice-cut">
-                <div className="left"></div>
-                <div className="line"></div>
-                <div className="rigth"></div>
-              </div>
+              <div className="left"></div>
+              <div className="rigth"></div>
               <div className="invoice-total">
                 <SpaceBetween>
                   <span className="total">Total</span>
@@ -145,11 +169,18 @@ const Orders = () => {
                 </SpaceBetween>
               </div>
             </div>
-            <div className="finish">
-              <button className="send" onClick={() => handleConfirmOrder()}>
-                Confirmar pedido
-              </button>
-            </div>
+            <button
+              className="send-dashboard"
+              onClick={() => handleConfirmOrder()}
+            >
+              Confirmar pedido
+            </button>
+            <button
+              className="send-mobile"
+              onClick={() => handleConfirmOrderMobile()}
+            >
+              Confirmar pedido
+            </button>
           </div>
         </OrderContainer>
       )}

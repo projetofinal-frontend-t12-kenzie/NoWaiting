@@ -1,22 +1,22 @@
 import { Pesquisa } from "./BoxPesquisa.style";
-import { BiSearchAlt } from "react-icons/bi";
-import { TbHome2 } from "react-icons/tb";
 import { useContext } from "react";
 import { Contexts } from "../../../contexts/provider";
+import { RiHomeLine } from "react-icons/ri";
+import { AiOutlineSearch } from "react-icons/ai";
 
 const BoxPesquisa = () => {
-  const { setFiltered } = useContext(Contexts);
+  const { setFiltered, handleApp } = useContext(Contexts);
 
   const productsFiltered = (e) => {
     e.preventDefault();
   };
 
   return (
-    <Pesquisa>
-      <div className="inputPesquisa">
-        <form>
+    <Pesquisa id="Search">
+      <div className="nav">
+        <div className="inputSearch">
           <button>
-            <BiSearchAlt size={25} />
+            <AiOutlineSearch size={25} />
           </button>
           <input
             onSubmit={productsFiltered}
@@ -24,9 +24,9 @@ const BoxPesquisa = () => {
             placeholder="Pesquise aqui..."
             onChange={(e) => setFiltered(e.target.value)}
           />
-        </form>
-        <button>
-          <TbHome2 size={30} />
+        </div>
+        <button onClick={() => handleApp()}>
+          <RiHomeLine size={30} />
         </button>
       </div>
     </Pesquisa>

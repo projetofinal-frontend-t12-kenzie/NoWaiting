@@ -10,16 +10,15 @@ import { ContainerDashboard } from "./dashboardCliente.styles";
 
 const DashboardCliente = () => {
   return (
-    <ContainerDashboard id="container">
-      <div className="bodyList">
+    <ContainerDashboard id="dashboardCliente">
+      <main className="app">
         <Header />
         <ContainerLocalizacao />
         <Navbar />
         <Produtos />
         <ProdutosRecomendados />
-      </div>
+      </main>
       <Orders />
-
       <BoxPesquisa id="seach" />
     </ContainerDashboard>
   );

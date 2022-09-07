@@ -4,12 +4,10 @@ export const InvoiceContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  position: relative;
   align-items: center;
 
-  width: 430px;
-
-  padding: 10px;
+  width: 370px;
+  height: 100vh;
 
   background-color: #141414;
 
@@ -31,32 +29,34 @@ export const InvoiceContainer = styled.div`
   }
 
   .invoice {
-    height: 222px;
     position: relative;
 
     width: 77%;
-    right: 18px;
+    height: 222px;
 
     .register {
       display: flex;
       justify-content: space-evenly;
       flex-direction: column;
 
-      background-color: #ffffff;
-      height: 150px;
-      position: relative;
+      height: 167px;
       width: 100%;
-      margin: 0px;
+
       border-radius: 5px;
       padding: 0 20px 10px 20px;
 
+      background-color: #ffffff;
+
       font-size: 14px;
       font-weight: 600;
+
+      border-bottom: 3px dashed black;
 
       .name {
         display: flex;
 
         width: 100%;
+        height: 30px;
 
         gap: 10px;
 
@@ -68,6 +68,7 @@ export const InvoiceContainer = styled.div`
           border-bottom: 1px solid #000;
 
           .setName {
+            padding-right: 20px;
             border: none;
             outline: 0;
           }
@@ -84,6 +85,7 @@ export const InvoiceContainer = styled.div`
         display: flex;
 
         width: 100%;
+        height: 30px;
 
         gap: 10px;
 
@@ -95,6 +97,7 @@ export const InvoiceContainer = styled.div`
           border-bottom: 1px solid #000;
 
           .setTable {
+            padding-right: 20px;
             border: none;
             outline: 0;
           }
@@ -108,40 +111,32 @@ export const InvoiceContainer = styled.div`
       }
     }
 
-    .invoice-cut {
-      .left {
-        position: absolute;
-        width: 15px;
-        height: 30px;
-        border-radius: 0px 30px 30px 0px;
-        background-color: var(--grey-3);
-        top: 147px;
-        z-index: 1;
-      }
+    .left {
+      position: absolute;
+      width: 15px;
+      height: 30px;
+      border-radius: 0px 30px 30px 0px;
+      background-color: #141414;
+      top: 150px;
+      left: -1;
+      z-index: 1;
+    }
 
-      .line {
-        margin: 0px;
-        width: 200px;
-        background-color: #000;
-        height: 2px;
-      }
-
-      .rigth {
-        position: absolute;
-        width: 15px;
-        height: 30px;
-        border-radius: 30px 0px 0px 30px;
-        background-color: var(--grey-3);
-        top: 147px;
-        right: -40px;
-        z-index: 1;
-      }
+    .rigth {
+      position: absolute;
+      width: 15px;
+      height: 30px;
+      border-radius: 30px 0px 0px 30px;
+      background-color: #141414;
+      top: 150px;
+      right: -1px;
+      z-index: 1;
     }
 
     .invoice-total {
       flex-direction: column;
       background-color: #ffffff;
-      height: 50px;
+      height: 60px;
       position: relative;
       width: 100%;
       margin: 0px;
@@ -153,14 +148,6 @@ export const InvoiceContainer = styled.div`
         font-size: 15px;
         font-weight: 600;
       }
-    }
-  }
-  .finish {
-    display: flex;
-
-    @media screen and (min-width: 1300px) {
-      right: 30px;
-      top: 510px;
     }
   }
 
@@ -175,5 +162,44 @@ export const InvoiceContainer = styled.div`
     color: #fa7b12;
 
     font-size: 16px;
+  }
+
+  .send-dashboard {
+    width: 303px;
+    height: 57px;
+    left: 1178px;
+    top: 900px;
+
+    background: #ffffff;
+    border-radius: 10px;
+    border: none;
+
+    color: #fa7b12;
+
+    font-size: 16px;
+
+    @media screen and (min-width: 1000px) {
+      display: block;
+    }
+  }
+
+  .send-mobile {
+    display: none;
+    width: 303px;
+    height: 57px;
+    left: 1178px;
+    top: 900px;
+
+    background: #ffffff;
+    border-radius: 10px;
+    border: none;
+
+    color: #fa7b12;
+
+    font-size: 16px;
+
+    @media screen and (min-width: 1000px) {
+      display: none;
+    }
   }
 `;
