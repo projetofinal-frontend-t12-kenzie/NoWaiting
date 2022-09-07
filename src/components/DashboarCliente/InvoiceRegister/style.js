@@ -3,30 +3,23 @@ import styled from "styled-components";
 export const InvoiceContainer = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
-  position: absolute;
+  position: relative;
+  align-items: center;
 
-  width: 300px;
-  height: 115%;
-
-  top: 0;
-  right: -9px;
+  width: 430px;
 
   padding: 10px;
-  background: rgba(0, 0, 0, 0.8);
+
+  background-color: #141414;
 
   font-family: "Inter";
   font-style: normal;
 
-  z-index: 3;
+  gap: 15px;
 
   .close {
-    position: relative;
-
-    bottom: 400px;
-    left: 122px;
-
+    padding-left: 262px;
     z-index: 1;
 
     background: transparent;
@@ -43,8 +36,6 @@ export const InvoiceContainer = styled.div`
 
     width: 77%;
     right: 18px;
-
-    bottom: 262px;
 
     .register {
       display: flex;
@@ -167,10 +158,6 @@ export const InvoiceContainer = styled.div`
   .finish {
     display: flex;
 
-    position: absolute;
-    bottom: 614px;
-    right: 9px;
-
     @media screen and (min-width: 1300px) {
       right: 30px;
       top: 510px;
@@ -178,10 +165,8 @@ export const InvoiceContainer = styled.div`
   }
 
   .send {
-    width: 303px;
+    width: 287px;
     height: 57px;
-    left: 1178px;
-    top: 900px;
 
     background: #ffffff;
     border-radius: 10px;
