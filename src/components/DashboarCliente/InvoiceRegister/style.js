@@ -6,7 +6,9 @@ export const InvoiceContainer = styled.div`
   flex-direction: column;
   align-items: center;
 
-  width: 370px;
+  position: absolute;
+
+  width: 100%;
   height: 100vh;
 
   background-color: #141414;
@@ -183,23 +185,22 @@ export const InvoiceContainer = styled.div`
     }
   }
 
-  .send-mobile {
-    display: none;
-    width: 303px;
-    height: 57px;
-    left: 1178px;
-    top: 900px;
+  @media screen and (min-width: 1000px) {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
-    background: #ffffff;
-    border-radius: 10px;
-    border: none;
+    position: initial;
 
-    color: #fa7b12;
+    width: 370px;
+    height: 100vh;
 
-    font-size: 16px;
+    background-color: #141414;
 
-    @media screen and (min-width: 1000px) {
-      display: none;
-    }
+    font-family: "Inter";
+    font-style: normal;
+
+    gap: 15px;
   }
 `;

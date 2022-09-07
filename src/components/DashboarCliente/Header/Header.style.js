@@ -34,42 +34,52 @@ export const HeaderConteiner = styled.section`
     height: 50px;
   }
 
-  .notification {
-    text-align: center;
-    color: white;
-    font-family: var(--font);
-    font-size: 10px;
-    font-weight: 700;
+  .shortcut {
+    position: relative;
 
-    display: flex;
-    justify-content: center;
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    background-color: black;
+    .notification {
+      display: flex;
+      justify-content: center;
 
-    position: bsolute;
-    /* top:;
+      font-family: var(--font);
+      font-size: 10px;
+      font-weight: 700;
+      color: #fa7b12;
+
+      position: absolute;
+
+      right: 7px;
+
+      height: 12px;
+      width: 12px;
+
+      border-radius: 50%;
+      background-color: #fff;
+
+      position: bsolute;
+      /* top:;
     left:; */
 
-    @media screen and (min-width: 1000px) {
-      display: none;
+      @media screen and (min-width: 1000px) {
+        display: none;
+      }
     }
-  }
 
-  .cart {
-    display: block;
-    background-color: transparent;
-    border: none;
-    color: #fa7b12;
-    width: 45px;
-    height: 45px;
-    size: 3rem;
-    padding: 0;
-    cursor: pointer;
+    .cart {
+      display: block;
+      background-color: transparent;
+      border: none;
+      color: #fa7b12;
+      width: 45px;
+      height: 45px;
+      size: 3rem;
+      padding: 0;
+      margin-right: 10px;
+      cursor: pointer;
 
-    @media screen and (min-width: 1000px) {
-      display: none;
+      @media screen and (min-width: 1000px) {
+        display: none;
+      }
     }
   }
 `;
@@ -104,6 +114,7 @@ export const BarraPesquisa = styled.div`
     background-color: transparent;
     border: none;
     width: 85%;
+    outline: 0;
 
     ::placeholder {
       color: #ffff;

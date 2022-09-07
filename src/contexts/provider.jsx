@@ -2,17 +2,17 @@ import { createContext, useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import api from "../services/api";
 
-const invoice = {
-  total: 0,
-  subTotal: 0,
-  descount: 0,
-  tax: 0,
-};
-
 export const Contexts = createContext({});
 
 const ContextsProvider = ({ children }) => {
   const navigate = useNavigate();
+
+  const InicialInvoice = {
+    total: 0,
+    subTotal: 0,
+    descount: 0,
+    tax: 0,
+  };
 
   const location = useLocation();
   const [menu, setMenu] = useState([]);
@@ -20,11 +20,14 @@ const ContextsProvider = ({ children }) => {
   const [filtered, setFiltered] = useState("");
 
   const [orders, setOrders] = useState([]);
-
   const [request, setRequest] = useState([]);
 
+  const [invoice, setInvoice] = useState(false);
+  const [ordering, setOrderList] = useState(true);
+  const [registerOrder, setRegisterOrder] = useState(false);
+
   const [totalPrice, setTotalPrice] = useState(0);
-  const [currentAmout, setCurrent] = useState(invoice);
+  const [currentAmout, setCurrent] = useState(InicialInvoice);
   const [concludedOrders, setConcludedOrders] = useState([]);
 
   const [order, setOrder] = useState([]);
@@ -58,7 +61,6 @@ const ContextsProvider = ({ children }) => {
     api
       .delete("/order", order.id)
       .then((response) => {
-        console.log(response);
         setOrder(response.data);
         setConcludedOrders([...concludedOrders, order]);
       })
@@ -118,7 +120,7 @@ const ContextsProvider = ({ children }) => {
       };
       setCurrent(currentPrice);
     } else {
-      setCurrent(invoice);
+      setCurrent(InicialInvoice);
     }
   };
 
@@ -127,19 +129,24 @@ const ContextsProvider = ({ children }) => {
   }
 
   const handleOpenCart = () => {
+    setOrderList(true);
     const cart = document.getElementById("orders");
     cart.style.display = "block";
-    cart.style.position = "absolute";
-    cart.style.width = "100%";
-    cart.style.height = "100%";
   };
 
   const handleApp = () => {
-    const cart = document.getElementById("orders");
-    cart.style.display = "none";
-    // cart.style.position = "none";
-    // cart.style.width = "430px";
-    // cart.style.height = "100vh";
+    if (invoice === true) {
+      setInvoice(false);
+      setOrderList(false);
+      setRegisterOrder(false);
+    }
+    if (ordering === true) {
+      setOrderList(false);
+      setRegisterOrder(false);
+    }
+    if (registerOrder === true) {
+      setRegisterOrder(false);
+    }
   };
 
   return (
@@ -170,6 +177,12 @@ const ContextsProvider = ({ children }) => {
         handleOpenCart,
         handleApp,
         findOrders,
+        invoice,
+        setInvoice,
+        ordering,
+        setOrderList,
+        registerOrder,
+        setRegisterOrder,
       }}
     >
       {children}

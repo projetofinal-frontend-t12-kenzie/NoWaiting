@@ -13,11 +13,11 @@ const Invoice = ({ setOrderList, setInvoice }) => {
   });
 
   const handleTimeOut = () => {
-    // setTimeout(() => {
-    //   setInvoice(false);
-    //   setRequest([]);
-    //   setOrderList(true);
-    // }, 10000);
+    setTimeout(() => {
+      setInvoice(false);
+      setRequest([]);
+      setOrderList(true);
+    }, 10000);
   };
 
   return (
