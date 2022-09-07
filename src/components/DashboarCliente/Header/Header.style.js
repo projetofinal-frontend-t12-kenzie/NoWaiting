@@ -43,11 +43,14 @@ export const HeaderConteiner = styled.section`
 
     display: flex;
     justify-content: center;
-    position: bsolute;
     height: 15px;
     width: 15px;
     border-radius: 50%;
     background-color: black;
+
+    position: bsolute;
+    /* top:;
+    left:; */
 
     @media screen and (min-width: 1000px) {
       display: none;

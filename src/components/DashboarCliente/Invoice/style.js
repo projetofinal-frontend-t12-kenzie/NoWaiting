@@ -126,6 +126,7 @@ export const ConfirmeInvoice = styled.div`
 
         width: 100%;
       }
+
       .left {
         position: absolute;
         width: 15px;
