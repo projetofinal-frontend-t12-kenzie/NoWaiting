@@ -1,19 +1,23 @@
 import styled from "styled-components";
 
-export const ContainerProdutos = styled.div`
-  align-items: center;
-  flex-direction: row;
-
-  width: 100%;
-
+export const ContainerProdutos = styled.ul`
   display: flex;
-  box-sizing: border-box;
   flex-direction: row;
-  justify-content: space-between;
-  padding: 20px 15px 20px 15px;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 100vw;
+  height: 100%;
+
+  padding-left: 20px;
+  margin-top: 30px;
+
+  box-sizing: border-box;
+
   gap: 15px;
-  overflow: scroll;
-  overflow-y: hidden;
+
+  overflow-x: scroll;
+  overflow-y: none;
 
   &::-webkit-scrollbar {
     display: none;
@@ -27,71 +31,69 @@ export const ContainerProdutos = styled.div`
   }
 
   @media screen and (min-width: 1300px) {
-    width: 80%;
+    width: 85%;
     overflow: hidden;
-    padding: 15px 15px 530px 15px;
+
     flex-wrap: wrap;
   }
 `;
 
-export const CardProdutos = styled.div`
+export const CardProdutos = styled.li`
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: row;
+  justify-content: flex-end;
+  flex-direction: column;
   position: relative;
 
-  width: 150px;
+  min-width: 180px;
   height: 220px;
 
-  background-image: url("https://images.pexels.com/photos/574111/pexels-photo-574111.jpeg?auto=compress&cs=tinysrgb&w=1600");
   border-radius: 12px;
 
   font-family: var(--font);
 
-  @media screen and (min-width: 1000px) {
-    height: 195px;
-  }
-  &:hover {
-    transform: scale(1.1);
-    transition: 0.4s;
-  }
+  opacity: 0.7;
 
   img {
     height: 100%;
     width: 100%;
     position: absolute;
     border-radius: 12px;
-    opacity: 0.5;
   }
 
-  div {
-    background-color: var(--grey-transparent);
-    padding: 8px 0px 0 8px;
-    border-radius: 12px;
-    width: 150px;
-    height: 100px;
-
+  .description {
     display: flex;
     flex-direction: column;
-    justify-content: baseline;
-    gap: 6px;
+    justify-content: space-between;
 
-    position: relative;
-    top: 45px;
-    gap: 10px;
+    padding: 8px 0px 0 8px;
+    border-radius: 12px;
+
+    width: 100%;
+    height: 100px;
+
+    gap: 5.5px;
+
+    background: rgba(0, 0, 0, 0.5) 0%;
+    z-index: 1;
   }
 
-  h3 {
-    font-size: 18px;
+  .title {
+    font-family: "Inter";
+    font-style: normal;
     font-weight: 700;
-    color: var(--grey-0);
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #ffffff;
   }
 
-  p {
-    font-size: 14px;
-    font-weight: 200;
-    color: var(--grey-0);
+  .description-product {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    color: #ffffff;
   }
 
   .categoria {
@@ -100,22 +102,31 @@ export const CardProdutos = styled.div`
     color: var(--color-primary);
   }
 
-  span {
+  .price {
+    color: #ffff;
     font-size: 12px;
     font-weight: 600;
   }
 
-  button {
+  .cart {
     background-color: transparent;
     border: none;
-    color: #fa7b12;
+    color: #ffff;
     width: 40px;
     height: 40px;
     size: 3rem;
-    padding: 0;
+
     cursor: pointer;
-    position: relative;
-    top: -22px;
-    left: 95px;
+
+    padding-bottom: 40px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    height: 230px;
+  }
+  &:hover {
+    transform: scale(1.02);
+    transition: 0.4s;
+    opacity: 1;
   }
 `;

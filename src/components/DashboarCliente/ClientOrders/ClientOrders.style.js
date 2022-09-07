@@ -6,7 +6,8 @@ export const OrderContainer = styled.div`
   flex-direction: column;
   position: relative;
 
-  width: 430px;
+  width: 370px;
+  height: 100vh;
 
   padding: 10px;
 
@@ -14,10 +15,6 @@ export const OrderContainer = styled.div`
 
   font-family: "Inter";
   font-style: normal;
-
-  @media screen and (min-width: 1000px) {
-    display: flex;
-  }
 
   .block {
     display: flex;
@@ -29,6 +26,10 @@ export const OrderContainer = styled.div`
     height: 50%;
 
     .header {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
       width: 100%;
       height: 50px;
 
@@ -46,10 +47,6 @@ export const OrderContainer = styled.div`
       flex-direction: column;
       align-items: baseline;
       padding: 0 0 0 27px;
-
-      @media screen and (min-width: 1300px) {
-        padding: 0 0 0 13px;
-      }
 
       overflow-y: scroll;
 
@@ -157,13 +154,10 @@ export const OrderContainer = styled.div`
     }
 
     .invoice {
-      height: 222px;
+      height: 200px;
       position: relative;
 
       width: 77%;
-
-      right: 18px;
-
       .invoice-amount {
         display: flex;
         justify-content: space-evenly;
@@ -179,70 +173,96 @@ export const OrderContainer = styled.div`
 
         font-size: 14px;
         font-weight: 600;
+
+        border-bottom: 1.5px dashed black;
       }
 
-      .invoice-cut {
-        .left {
-          position: absolute;
-          width: 15px;
-          height: 30px;
-          border-radius: 0px 30px 30px 0px;
-          background-color: var(--grey-3);
-          top: 116px;
-          z-index: 1;
-        }
-
-        .line {
-          margin: 0px;
-          width: 200px;
-          background-color: #000;
-          height: 4px;
-        }
-
-        .rigth {
-          position: absolute;
-          width: 15px;
-          height: 30px;
-          border-radius: 30px 0px 0px 30px;
-          background-color: var(--grey-3);
-          top: 116px;
-          right: -40px;
-          z-index: 1;
-        }
+      .left {
+        position: absolute;
+        width: 15px;
+        height: 30px;
+        border-radius: 0px 30px 30px 0px;
+        background-color: #141414;
+        top: 104px;
+        z-index: 1;
       }
 
-      .invoice-total {
-        flex-direction: column;
-        background-color: #ffffff;
-        height: 40px;
-        position: relative;
-        width: 100%;
-        margin: 0px;
-        border-radius: 5px;
-        padding: 10px 20px 0 20px;
-
-        div {
-          margin-top: 10px;
-          font-size: 15px;
-          font-weight: 600;
-        }
+      .rigth {
+        position: absolute;
+        width: 15px;
+        height: 30px;
+        border-radius: 30px 0px 0px 30px;
+        background-color: #141414;
+        top: 104px;
+        right: 0px;
+        z-index: 1;
       }
     }
 
-    .send {
-      width: 303px;
-      height: 57px;
-      left: 1178px;
-      top: 900px;
+    .invoice-total {
+      flex-direction: column;
+      background-color: #ffffff;
+      height: 52px;
+      position: relative;
+      width: 100%;
+      margin: 0px;
+      border-radius: 5px;
+      padding: 10px 20px 0 20px;
 
-      background: #fa7b12;
-      border-radius: 10px;
-      border: none;
-
-      color: #ffffff;
-
-      font-size: 16px;
+      div {
+        margin-top: 10px;
+        font-size: 15px;
+        font-weight: 600;
+      }
     }
+  }
+
+  .send-dashboard {
+    width: 303px;
+    height: 57px;
+    left: 1178px;
+    top: 900px;
+
+    background: #fa7b12;
+    border-radius: 10px;
+    border: none;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    @media screen and (min-width: 1000px) {
+      display: block;
+    }
+  }
+
+  .send-mobile {
+    display: none;
+    width: 303px;
+    height: 57px;
+    left: 1178px;
+    top: 900px;
+
+    background: #fa7b12;
+    border-radius: 10px;
+    border: none;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    @media screen and (min-width: 1000px) {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    display: flex;
+    /* display: block; */
+  }
+
+  @media screen and (min-width: 1300px) {
+    padding: 0 0 0 13px;
   }
 `;
 

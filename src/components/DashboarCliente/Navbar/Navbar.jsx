@@ -7,6 +7,8 @@ import { useState } from "react";
 const Navbar = () => {
   const { setMenu } = useContext(Contexts);
 
+  const [selected, setSelected] = useState("todos");
+
   async function showMenu() {
     const response = await api.get("/menu");
     setMenu(response.data);
@@ -45,12 +47,24 @@ const Navbar = () => {
   return (
     <ContainerNavbar>
       <div className="buttons">
-        <button onClick={() => showMenu()}>Todos</button>
-        <button onClick={() => fastfoodFilter()}>Fast food</button>
-        <button onClick={() => pastasFilter()}>Pastas</button>
-        <button onClick={() => veggieFilter()}>Veggie</button>
-        <button onClick={() => bebidasFilter()}>Bebidas</button>
-        <button onClick={() => sobremesasFilter()}>Sobremesas</button>
+        <button onClick={() => showMenu()} value={"Todos"}>
+          Todos
+        </button>
+        <button onClick={() => fastfoodFilter()} value={"Fast food"}>
+          Fast food
+        </button>
+        <button onClick={() => pastasFilter()} value={"Pastas"}>
+          Pasta
+        </button>
+        <button onClick={() => veggieFilter()} value={"Veggie"}>
+          Veggie
+        </button>
+        <button onClick={() => bebidasFilter()} value={"Bebidas"}>
+          Bebidas
+        </button>
+        <button onClick={() => sobremesasFilter()} value={"Sobremesas"}>
+          Sobremesas
+        </button>
       </div>
     </ContainerNavbar>
   );

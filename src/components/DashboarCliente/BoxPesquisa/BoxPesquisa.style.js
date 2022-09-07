@@ -1,27 +1,20 @@
 import styled from "styled-components";
 
 export const Pesquisa = styled.div`
-  height: 70px;
-  width: 100%;
-  display: block;
   display: flex;
-
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
-  margin: 0;
+  justify-content: center;
+
+  height: 70px;
+  width: 100%;
 
   position: fixed;
-  top: 31.3rem;
+  bottom: 0;
 
-  background-color: #fa7b12;
-
-  @media screen and (min-width: 750px) {
-    top: 31.2rem;
-  }
+  background-color: #000;
 
   @media screen and (min-width: 1000px) {
-    top: 43.1rem;
     display: none;
   }
 
@@ -36,13 +29,13 @@ export const Pesquisa = styled.div`
     cursor: pointer;
   }
 
-  .inputPesquisa {
+  .nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    width: 80%;
-    form {
+    justify-content: space-between;
+    width: 95%;
+    .inputSearch {
       width: 75%;
       height: 40px;
       display: flex;
@@ -59,6 +52,11 @@ export const Pesquisa = styled.div`
         border: none;
         height: 100%;
         width: 80%;
+        outline: 0;
+
+        ::placeholder {
+          color: #ffff;
+        }
       }
     }
   }

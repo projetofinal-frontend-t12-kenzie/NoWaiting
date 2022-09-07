@@ -1,16 +1,18 @@
 import { CardProdutos, ContainerProdutos } from "./CardProduto.style";
-import { BsCart2 } from "react-icons/bs";
-import { useContext, useEffect, useState } from "react";
+import { RiShoppingCartLine } from "react-icons/ri";
+import { useContext, useState } from "react";
 import { Contexts } from "../../../contexts/provider";
+import { SpaceBetween } from "../ClientOrders/ClientOrders.style";
 
 const Produtos = () => {
-  const { menu, filtered, orders, setOrder } = useContext(Contexts);
+  const { menu, filtered, request, setRequest, calculatingTotalValue } =
+    useContext(Contexts);
 
   const addedproduct = (produto) => {
     let confirmAmount = false;
 
-    if (orders.length > 0) {
-      orders?.forEach((item) => {
+    if (request.length > 0) {
+      request?.forEach((item) => {
         if (produto.id === item.id) {
           return (confirmAmount = true);
         }
@@ -23,7 +25,7 @@ const Produtos = () => {
         amount: 1,
         ...produto,
       };
-      setOrder([...orders, objOrder]);
+      setRequest([...request, objOrder]);
     }
   };
 
@@ -33,14 +35,19 @@ const Produtos = () => {
         ? menu.map((produto) => (
             <CardProdutos key={produto.id}>
               <img src={produto.img} alt={produto.name} />
-              <div>
-                <h3>{produto.name}</h3>
-                <p>{produto.description}</p>
+              <div className="description">
+                <h3 className="title">{produto.name}</h3>
+                <p className="description-product">{produto.description}</p>
                 <span className="categoria">{produto.type}</span>
-                <span>R$ {produto.price}.00</span>
-                <button onClick={() => addedproduct(produto)}>
-                  <BsCart2 size={15} />
-                </button>
+                <SpaceBetween>
+                  <span className="price">R$ {produto.price}.00</span>
+                  <button
+                    className="cart"
+                    onClick={() => addedproduct(produto)}
+                  >
+                    <RiShoppingCartLine size={20} />
+                  </button>
+                </SpaceBetween>
               </div>
             </CardProdutos>
           ))
@@ -61,7 +68,7 @@ const Produtos = () => {
                   <span className="categoria">{produto.type}</span>
                   <span>R$ {produto.price}.00</span>
                   <button>
-                    <BsCart2 size={15} />
+                    <RiShoppingCartLine size={15} />
                   </button>
                 </div>
               </CardProdutos>
