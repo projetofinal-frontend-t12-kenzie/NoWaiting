@@ -9,6 +9,8 @@ export const ContainerNavbar = styled.div`
 
   gap: 15px;
 
+  ${(props) => console.log(props.children.props.children)};
+
   .buttons {
     width: 100%;
     display: flex;
@@ -40,15 +42,19 @@ export const ContainerNavbar = styled.div`
 
   button {
     padding: 8px 30px;
-    border-radius: 20px;
+    border-radius: 5px;
     border: none;
-    background-color: #828282;
-    color: white;
+    background-color: #000;
+    color: #777777;
     font-family: var(--font);
+    font-weight: 700;
+
+    line-height: 18px;
     cursor: pointer;
 
     &:hover {
       background-color: #fa7b12;
+      color: #fff;
       transform: scale(1.2);
       transition: 1s;
     }

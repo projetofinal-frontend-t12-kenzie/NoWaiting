@@ -21,9 +21,25 @@ const ContextsProvider = ({ children }) => {
 
   const [orders, setOrders] = useState([]);
 
+  const [request, setRequest] = useState([]);
+
   const [totalPrice, setTotalPrice] = useState(0);
   const [currentAmout, setCurrent] = useState(invoice);
   const [concludedOrders, setConcludedOrders] = useState([]);
+
+  const [order, setOrder] = useState([]);
+  const findOrders = () => {
+    api
+      .get("/order")
+      .then((response) => setOrder(response.data))
+      .catch((err) => console.log(err));
+    const res = [];
+    for (const keys of order) {
+      keys.pedido.forEach((element) => res.push(element));
+    }
+    setOrders(res);
+    return res;
+  };
 
   useEffect(() => {
     async function showMenu() {
@@ -32,13 +48,10 @@ const ContextsProvider = ({ children }) => {
     }
     showMenu();
     calculatingTotalValue();
-  }, [orders]);
+  }, [request]);
 
   useEffect(() => {
-    api
-      .get("/order")
-      .then((response) => setOrders(response.data))
-      .catch((err) => console.log(err));
+    findOrders();
   }, []);
 
   function check(order) {
@@ -46,10 +59,11 @@ const ContextsProvider = ({ children }) => {
       .delete("/order", order.id)
       .then((response) => {
         console.log(response);
-        setOrders(response.data);
+        setOrder(response.data);
         setConcludedOrders([...concludedOrders, order]);
       })
       .catch((err) => console.log(err));
+    findOrders();
   }
 
   async function loginUser(data) {
@@ -83,25 +97,49 @@ const ContextsProvider = ({ children }) => {
   }
 
   const calculatingTotalValue = () => {
-    let total = orders.reduce(
-      (previousValue, currentValue) =>
-        previousValue + currentValue.price * currentValue.amount,
-      0
-    );
-    const subTotal = total;
-    const descount = total * 0.2;
-    const tax = Number((total * 0.02).toFixed(2));
+    if (request.length > 0) {
+      let total = request.reduce(
+        (previousValue, currentValue) =>
+          previousValue + currentValue.price * currentValue.amount,
+        0
+      );
+      const subTotal = total;
+      const descount = total * 0.2;
+      const tax = Number((total * 0.02).toFixed(2));
 
-    total = Number(total) - descount;
-    total = Number(total) + tax;
+      total = Number(total) - descount;
+      total = Number(total) + tax;
 
-    const currentPrice = {
-      total,
-      subTotal,
-      descount,
-      tax,
-    };
-    setCurrent(currentPrice);
+      const currentPrice = {
+        total,
+        subTotal,
+        descount,
+        tax,
+      };
+      setCurrent(currentPrice);
+    } else {
+      setCurrent(invoice);
+    }
+  };
+
+  async function sendRequest(data) {
+    await api.post("/order", data);
+  }
+
+  const handleOpenCart = () => {
+    const cart = document.getElementById("orders");
+    cart.style.display = "block";
+    cart.style.position = "absolute";
+    cart.style.width = "100%";
+    cart.style.height = "100%";
+  };
+
+  const handleApp = () => {
+    const cart = document.getElementById("orders");
+    cart.style.display = "none";
+    // cart.style.position = "none";
+    // cart.style.width = "430px";
+    // cart.style.height = "100vh";
   };
 
   return (
@@ -118,6 +156,8 @@ const ContextsProvider = ({ children }) => {
         calculatingTotalValue,
         user,
         setOrders,
+        setRequest,
+        request,
         concludedOrders,
         setConcludedOrders,
         check,
@@ -126,6 +166,10 @@ const ContextsProvider = ({ children }) => {
         logOut,
         filtered,
         setFiltered,
+        sendRequest,
+        handleOpenCart,
+        handleApp,
+        findOrders,
       }}
     >
       {children}

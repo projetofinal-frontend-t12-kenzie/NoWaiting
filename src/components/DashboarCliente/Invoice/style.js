@@ -20,98 +20,122 @@ export const ConfirmeInvoice = styled.div`
 
   .invoice {
     display: flex;
-    justify-content: space-evenly;
     flex-direction: column;
 
     background-color: #ffffff;
-    height: 400px;
+    height: 500px;
     position: relative;
     width: 77%;
     margin: 0px;
     border-radius: 5px;
-    padding: 0 20px 10px 20px;
 
-    .icon-done.one {
-      position: absolute;
+    font-family: "Roboto";
+    font-style: normal;
 
-      background: #fa7b12;
-
-      border-radius: 50%;
-
-      bottom: 378px;
-      left: 104px;
-
-      height: 80px;
-      width: 80px;
-    }
-
-    .icon-done.two {
-      position: absolute;
-
-      background: #fa7b12;
-
-      border-radius: 50%;
-
-      bottom: 369px;
-      left: 94px;
-
-      height: 100px;
-      width: 100px;
-
-      opacity: 40%;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      width: 90%;
-      height: 70px;
-
-      gap: 20px;
-
-      .description-done {
-        color: #fa7b12;
-
-        padding-left: 23px;
-      }
-
-      .description-order-done {
-        padding-left: 23px;
-      }
-    }
-
-    .invoice-amount {
+    .receipt {
       display: flex;
       justify-content: space-evenly;
       flex-direction: column;
 
-      height: 120px;
-
+      background-color: #ffffff;
+      height: 70%;
+      position: relative;
       width: 100%;
-    }
-    .invoice-cut {
+      margin: 0px;
+      border-radius: 5px;
+      padding: 0 20px 10px 20px;
+
+      border-bottom: 1.5px dashed black;
+
+      .icon-done.one {
+        position: absolute;
+
+        background: #fa7b12;
+
+        border-radius: 50%;
+
+        bottom: 314px;
+        left: 37%;
+
+        height: 80px;
+        width: 80px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: white;
+        z-index: 1;
+      }
+
+      .icon-done.two {
+        position: absolute;
+
+        background: #fa7b12;
+
+        border-radius: 50%;
+
+        bottom: 305px;
+        left: 33.4%;
+
+        height: 100px;
+        width: 100px;
+
+        opacity: 40%;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        width: 90%;
+        height: 70px;
+
+        gap: 20px;
+
+        margin-top: 30px;
+
+        .description-done {
+          display: flex;
+          justify-content: center;
+
+          color: #fa7b12;
+
+          padding-left: 32px;
+        }
+
+        .description-order-done {
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 21px;
+
+          color: #000000;
+
+          padding-left: 40px;
+        }
+      }
+
+      .invoice-amount {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+
+        height: 120px;
+
+        width: 100%;
+      }
+
       .left {
         position: absolute;
         width: 15px;
         height: 30px;
         border-radius: 0px 30px 30px 0px;
         background-color: var(--grey-3);
-        top: 288px;
+        top: 334px;
         left: 0px;
         z-index: 1;
-      }
-
-      .line {
-        position: absolute;
-        margin: 0px;
-        width: 270px;
-        bottom: 106px;
-        left: 10px;
-        background-color: #000;
-        height: 4px;
       }
 
       .rigth {
@@ -120,19 +144,26 @@ export const ConfirmeInvoice = styled.div`
         height: 30px;
         border-radius: 30px 0px 0px 30px;
         background-color: var(--grey-3);
-        top: 288px;
+        top: 334px;
         right: 0px;
         z-index: 1;
       }
     }
-
     .invoice-total {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
 
-      flex-direction: column;
+      height: 28%;
+      width: 100%;
 
+      background-color: #ffffff;
+
+      margin: 0px;
+
+      border-radius: 5px;
+      padding: 10px 20px 0 20px;
       .total {
         opacity: 60%;
         font-weight: 400;
@@ -149,6 +180,7 @@ export const ConfirmeInvoice = styled.div`
       }
     }
   }
+
   .finish {
     position: absolute;
     top: 505px;

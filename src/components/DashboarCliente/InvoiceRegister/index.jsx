@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import { useForm } from "react-hook-form";
 import { Contexts } from "../../../contexts/provider.jsx";
 import { SpaceBetween } from "../ClientOrders/ClientOrders.style.js";
 
@@ -9,11 +8,12 @@ const RegisterOrder = ({
   setRegisterOrder,
   setOrderList,
   handlePrintInvoice,
+  handlePrintInvoiceMobile,
 }) => {
   const [name, setName] = useState(null);
   const [table, setTable] = useState(null);
 
-  const { currentAmout } = useContext(Contexts);
+  const { currentAmout, request, sendRequest } = useContext(Contexts);
 
   const onChangeName = (data) => {
     setName(data);
@@ -28,13 +28,28 @@ const RegisterOrder = ({
       name,
       table,
     };
+    const objOrderComplete = {
+      mesa: clientRegister.table,
+      pedido: request,
+    };
+    sendRequest(objOrderComplete);
+    handlePrintInvoice();
+  };
 
-    console.log(clientRegister);
-    console.log("pedido enviado com sucesso");
+  const onSubmitMobile = () => {
+    const clientRegister = {
+      name,
+      table,
+    };
+    const objOrderComplete = {
+      mesa: clientRegister.table,
+      pedido: request,
+    };
+    sendRequest(objOrderComplete);
+    handlePrintInvoiceMobile();
   };
 
   const handleClose = () => {
-    console.log("closed");
     setRegisterOrder(false);
     setTimeout(() => {
       setOrderList(true);
@@ -75,11 +90,8 @@ const RegisterOrder = ({
             </div>
           </SpaceBetween>
         </form>
-        <div className="invoice-cut">
-          <div className="left"></div>
-          <div className="line"></div>
-          <div className="rigth"></div>
-        </div>
+        <div className="left"></div>
+        <div className="rigth"></div>
         <div className="invoice-total">
           <SpaceBetween>
             <span className="total">Total</span>
@@ -89,18 +101,25 @@ const RegisterOrder = ({
           </SpaceBetween>
         </div>
       </div>
-      <div className="finish">
-        <button
-          className="send"
-          type="submit"
-          onClick={() => {
-            onSubmit();
-            handlePrintInvoice();
-          }}
-        >
-          Imprimir
-        </button>
-      </div>
+
+      <button
+        className="send-dashboard"
+        type="submit"
+        onClick={() => {
+          onSubmit();
+        }}
+      >
+        Imprimir
+      </button>
+      <button
+        className="send-mobile"
+        type="submit"
+        onClick={() => {
+          onSubmitMobile();
+        }}
+      >
+        Imprimir
+      </button>
     </InvoiceContainer>
   );
 };
