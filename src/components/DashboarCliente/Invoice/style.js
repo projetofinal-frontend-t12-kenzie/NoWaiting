@@ -3,23 +3,20 @@ import styled from "styled-components";
 export const ConfirmeInvoice = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
-  position: absolute;
+  position: relative;
+  align-items: center;
 
-  width: 300px;
-  height: 115%;
-
-  top: 0;
-  right: -9px;
+  width: 430px;
 
   padding: 10px;
-  background: rgba(0, 0, 0, 0.8);
+
+  background-color: #141414;
 
   font-family: "Inter";
   font-style: normal;
 
-  z-index: 3;
+  gap: 15px;
 
   .invoice {
     display: flex;
@@ -37,12 +34,12 @@ export const ConfirmeInvoice = styled.div`
     .icon-done.one {
       position: absolute;
 
-      background: #4caf50;
+      background: #fa7b12;
 
       border-radius: 50%;
 
       bottom: 378px;
-      left: 96px;
+      left: 104px;
 
       height: 80px;
       width: 80px;
@@ -51,12 +48,12 @@ export const ConfirmeInvoice = styled.div`
     .icon-done.two {
       position: absolute;
 
-      background: #4caf50;
+      background: #fa7b12;
 
       border-radius: 50%;
 
       bottom: 369px;
-      left: 86px;
+      left: 94px;
 
       height: 100px;
       width: 100px;
@@ -76,7 +73,7 @@ export const ConfirmeInvoice = styled.div`
       gap: 20px;
 
       .description-done {
-        color: #4caf50;
+        color: #fa7b12;
 
         padding-left: 23px;
       }
