@@ -59,6 +59,11 @@ const ContextsProvider = ({ children }) => {
       }
     }
   }
+  function logOut() {
+    setUser(false);
+    localStorage.clear();
+    navigate("/login");
+  }
 
   async function registerUser(data) {
     console.log(data);
@@ -85,6 +90,7 @@ const ContextsProvider = ({ children }) => {
         check,
         totalPrice,
         setTotalPrice,
+        logOut,
       }}
     >
       {children}

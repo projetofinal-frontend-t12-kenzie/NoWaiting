@@ -27,6 +27,12 @@ export const RestProfile = styled.div`
     background-color: var(--color-primary-focused);
   }
 
+  img {
+    height: 45px;
+    width: 45px;
+    border-radius: 100%;
+  }
+
   @media screen and (max-width: 426px) {
     flex-direction: column;
   }

@@ -5,7 +5,7 @@ export const NonConcludedOrders = styled.div`
   flex-direction: column;
 
   width: 100%;
-  max-height: 280px;
+  max-height: 480px;
   align-items: flex-start;
   padding: 0px 20px 0px 20px;
   /* margin-left: 5%; */

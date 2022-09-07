@@ -1,12 +1,10 @@
 import { useContext } from "react";
 import { Contexts } from "../../contexts/provider";
-import api from "../../services/api";
 import { OrderCard } from "../DashboardRest/OrderCard.style";
 
 function BuildOrderCard({ order }) {
-  const { check } =
-    useContext(Contexts);
-  /* const {handleOrder} = useContext(Contexts) */
+  const { check } = useContext(Contexts);
+
   return (
     <>
       <OrderCard>

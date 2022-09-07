@@ -9,7 +9,6 @@ export const OrdersContainer = styled.div`
   margin: 10px 0;
 
   h3 {
-    /* margin-left: 5%; */
     display: flex;
     margin-top: 15px;
     font-size: 20px;
@@ -18,8 +17,7 @@ export const OrdersContainer = styled.div`
     margin-bottom: 10px;
   }
 
-  
-  @media screen and (min-width: 769px){
+  @media screen and (min-width: 769px) {
     display: flex;
     flex-direction: row;
   }

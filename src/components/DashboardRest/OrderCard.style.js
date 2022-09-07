@@ -26,6 +26,12 @@ export const OrderCard = styled.div`
     color: var(--grey-3);
   }
 
+  img {
+    height: 45px;
+    width: 45px;
+    border-radius: 100%;
+  }
+
   @media screen and (min-width: 769px) {
     width: 80%;
     max-height: 500px;
