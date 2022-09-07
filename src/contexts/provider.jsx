@@ -17,28 +17,13 @@ const ContextsProvider = ({ children }) => {
   const location = useLocation();
   const [menu, setMenu] = useState([]);
   const [user, setUser] = useState(null);
-  const [orders, setOrder] = useState([]);
-
-  const [token, setToken] = useState(null);
   const [filtered, setFiltered] = useState("");
-  const [loading, setLoading] = useState(true);
 
+  const [orders, setOrders] = useState([]);
+
+  const [totalPrice, setTotalPrice] = useState(0);
   const [currentAmout, setCurrent] = useState(invoice);
-
-  // useEffect(()=>{
-  //   async function loadUser() {
-  //     if(token){
-  //       try{
-  //         api.defaults.headers.authorization = `Bearer ${token}`;
-  //         const { data } = await api.get('/profile');
-  //         setUser(data);
-  //       }
-  //       catch(err){console.log(err)}
-  //     }
-  //     setLoading(false)
-  //   }
-  //   loadUser()
-  // },[token])
+  const [concludedOrders, setConcludedOrders] = useState([]);
 
   useEffect(() => {
     async function showMenu() {
@@ -48,6 +33,49 @@ const ContextsProvider = ({ children }) => {
     showMenu();
     calculatingTotalValue();
   }, [orders]);
+
+  useEffect(() => {
+    api
+      .get("/order")
+      .then((response) => setOrders(response.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  function check(order) {
+    api
+      .delete("/order", order.id)
+      .then((response) => {
+        console.log(response);
+        setOrders(response.data);
+        setConcludedOrders([...concludedOrders, order]);
+      })
+      .catch((err) => console.log(err));
+  }
+
+  async function loginUser(data) {
+    const response = await api
+      .post("/login", data)
+      .catch((error) => console.log(error));
+    const { accessToken, user } = response.data;
+
+    setUser(user);
+    const idUser = user.id;
+    api.defaults.headers.authorization = `Bearer ${accessToken}`;
+
+    const toNavigate = location.state?.from?.pathname || `/dashboard/${idUser}`;
+
+    if (accessToken !== null) {
+      localStorage.setItem("@nowaiting:token", accessToken);
+      if (localStorage.getItem("@nowaiting:token") !== null) {
+        navigate(toNavigate, { replace: true });
+      }
+    }
+  }
+  function logOut() {
+    setUser(false);
+    localStorage.clear();
+    navigate("/login");
+  }
 
   async function registerUser(data) {
     await api.post("/users", data);
@@ -80,17 +108,24 @@ const ContextsProvider = ({ children }) => {
     <Contexts.Provider
       value={{
         // colocar funções aqui
+        loginUser,
         registerUser,
-        loading,
         menu,
         setMenu,
         orders,
-        setOrder,
-        filtered,
-        setFiltered,
         currentAmout,
         setCurrent,
         calculatingTotalValue,
+        user,
+        setOrders,
+        concludedOrders,
+        setConcludedOrders,
+        check,
+        totalPrice,
+        setTotalPrice,
+        logOut,
+        filtered,
+        setFiltered,
       }}
     >
       {children}

@@ -4,8 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { Contexts } from "../../../contexts/provider";
 
 const Produtos = () => {
-  const { menu, filtered, orders, setOrder, calculatingTotalValue } =
-    useContext(Contexts);
+  const { menu, filtered, orders, setOrder } = useContext(Contexts);
 
   const addedproduct = (produto) => {
     let confirmAmount = false;
