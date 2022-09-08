@@ -7,13 +7,14 @@ export const Pesquisa = styled.div`
   justify-content: center;
 
   height: 10vh;
-  width: 95%;
+  width: 100%;
 
   position: fixed;
   bottom: 0;
-  
 
   background-color: #000;
+
+  z-index: 1;
 
   @media screen and (min-width: 1000px) {
     display: none;

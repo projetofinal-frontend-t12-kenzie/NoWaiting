@@ -1,15 +1,17 @@
 import styled from "styled-components";
 
 export const HeaderConteiner = styled.section`
-  width: 100%;
-  height: 70px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 4vh;
-  margin-top: 2vh;
-  
+
+  width: 100%;
+  height: 70px;
+
+  padding: 5px;
+
+  margin-bottom: 10px;
 
   @media screen and (min-width: 750px) {
     margin: 2vh 0 3vh 0;
@@ -22,7 +24,7 @@ export const HeaderConteiner = styled.section`
 
   @media screen and (min-width: 1200px) {
     margin: 2vh 0 3vh 0;
-    padding: 0 6vh 0 7vh;
+    padding: 0 17vh 0 14vh;
   }
 
   h1 {
@@ -35,7 +37,6 @@ export const HeaderConteiner = styled.section`
     width: 18vh;
     height: 6vh;
     padding-left: 3vh;
-
   }
 
   .shortcut {

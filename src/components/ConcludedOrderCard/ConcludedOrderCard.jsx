@@ -3,7 +3,7 @@ import { ConcludedOrderCard } from "../DashboardRest/ConcludedOrderCard.style";
 
 function BuildConcludedOrderCard({ order }) {
   /* const {handleOrder} = useContext(Contexts) */
-  console.log(order);
+
   return (
     <>
       <ConcludedOrderCard>

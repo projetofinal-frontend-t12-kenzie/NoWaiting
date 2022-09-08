@@ -7,7 +7,7 @@ export const OrderContainer = styled.div`
   position: absolute;
 
   width: 100%;
-  height: 100vh;
+  min-height: 120%;
 
   padding: 10px;
 
@@ -19,11 +19,11 @@ export const OrderContainer = styled.div`
   .block {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
     width: 100%;
-    height: 50%;
+    min-height: 50%;
 
     .header {
       display: flex;
@@ -46,12 +46,13 @@ export const OrderContainer = styled.div`
     .list.orders {
       display: flex;
       flex-direction: column;
-      align-items: baseline;
+
+      align-items: center;
 
       overflow-y: scroll;
 
       width: 95%;
-      height: 400px;
+      min-height: 250px;
 
       margin-top: 20px;
       margin-bottom: 20px;
@@ -291,8 +292,8 @@ export const OrderContainer = styled.div`
   }
 
   .send-dashboard {
-    width: 30vh;
-    height: 5vh;
+    width: 35vh;
+    height: 7vh;
     left: 1178px;
     top: 900px;
 
@@ -312,12 +313,14 @@ export const OrderContainer = styled.div`
   @media screen and (min-width: 1000px) {
     display: flex;
     /* display: block; */
-    width: 347px;
+    width: 400px;
+    min-height: 100%;
     position: initial;
   }
 
   @media screen and (min-width: 1300px) {
     padding: 0 0 0 13px;
+    min-height: 100%;
   }
 `;
 

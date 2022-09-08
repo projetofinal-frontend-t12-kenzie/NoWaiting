@@ -64,8 +64,6 @@ const Orders = () => {
     setInvoice(true);
   };
 
-  console.log(request);
-
   return (
     <>
       {invoice && (
@@ -89,7 +87,7 @@ const Orders = () => {
             <header className="header">
               <h2 className="title header">Pedidos</h2>
             </header>
-            <ul className="list orders">
+            <ul className="list orders" id="list">
               {request.length > 0 ? (
                 request.map((item) => {
                   return (
@@ -124,16 +122,6 @@ const Orders = () => {
                 })
               ) : (
                 <>
-                  <li className="ghost">
-                    <div className="ghost img"></div>
-                    <div className="ghost description">
-                      <div className="ghost title"></div>
-                      <div className="ghost config">
-                        <div className="ghost price"></div>
-                        <div className="ghost amount"></div>
-                      </div>
-                    </div>
-                  </li>
                   <li className="ghost">
                     <div className="ghost img"></div>
                     <div className="ghost description">
