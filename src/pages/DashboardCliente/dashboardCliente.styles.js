@@ -27,7 +27,10 @@ export const ContainerDashboard = styled.div`
     align-items: center;
     justify-content: flex-start;
 
-    overflow: none;
+    overflow-y: scroll;
+    ::-webkit-scrollbar {
+      display: none;
+    }
 
     @media screen and (min-width: 1000px) {
       width: 80%;

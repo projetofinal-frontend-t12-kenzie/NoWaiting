@@ -10,7 +10,6 @@ export const ContainerProdutos = styled.ul`
   height: 100%;
 
   padding-left: 20px;
-  margin-top: 30px;
 
   box-sizing: border-box;
 

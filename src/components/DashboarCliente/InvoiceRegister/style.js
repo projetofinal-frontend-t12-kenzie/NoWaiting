@@ -9,7 +9,7 @@ export const InvoiceContainer = styled.div`
   position: absolute;
 
   width: 100%;
-  height: 100vh;
+  min-height: 120%;
 
   background-color: #141414;
 

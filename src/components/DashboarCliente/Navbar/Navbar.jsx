@@ -45,7 +45,7 @@ const Navbar = () => {
   }
 
   return (
-    <ContainerNavbar>
+    <ContainerNavbar id="navBarContainer">
       <div className="buttons">
         <button onClick={() => showMenu()} value={"Todos"}>
           Todos
