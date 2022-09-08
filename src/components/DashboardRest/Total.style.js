@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const TotalContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 90%;
-  padding: 0 50px;
+  padding: 0 30px;
   margin: 20px 20px;
 
   margin-top: 20px;
@@ -12,11 +12,20 @@ export const TotalContainer = styled.div`
   border: 2px solid var(--grey-1);
   border-radius: 10px;
   font-size: 14px;
-
+  justify-content: center;
+  align-items: center;
   div {
     display: flex;
     justify-content: space-between;
     margin: 5px;
+  }
+
+  p {
+    display: flex;
+    font-size: 18px;
+    font-family: "Roboto";
+    font-weight: bold;
+    padding: 0 3vh;
   }
 
   span {
@@ -28,7 +37,8 @@ export const TotalContainer = styled.div`
 
   strong {
     display: flex;
-    font-size: 16px;
+    margin-top: 1vh;
+    font-size: 24px;
     font-family: "Roboto";
     font-weight: medium;
   }
@@ -36,5 +46,12 @@ export const TotalContainer = styled.div`
   @media screen and (min-width: 769px) {
     width: 92%;
     padding: 0 30px;
+    strong {
+    display: flex;
+    margin-top: 1vh;
+    font-size: 18px;
+    font-family: "Roboto";
+    font-weight: medium;
+  }
   }
 `;
