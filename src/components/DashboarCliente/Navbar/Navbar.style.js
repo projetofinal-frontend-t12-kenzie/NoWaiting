@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
 export const ContainerNavbar = styled.div`
-  width: 100%;
+  width: 84%;
   display: flex;
   align-items: center;
   flex-direction: row;
   justify-content: center;
 
-  gap: 15px;
+  gap: 5px;
+
+  margin-left: 15px;
 
   ${(props) => console.log(props.children.props.children)};
 
@@ -17,7 +19,7 @@ export const ContainerNavbar = styled.div`
     box-sizing: border-box;
     flex-direction: row;
     white-space: nowrap;
-    padding: 10px 15px;
+    padding: 10px 0px;
     gap: 15px;
     overflow: scroll;
 
@@ -27,6 +29,7 @@ export const ContainerNavbar = styled.div`
 
     @media screen and (min-width: 750px) {
       justify-content: space-evenly;
+      width: 84%;
     }
 
     @media screen and (min-width: 1000px) {
@@ -35,7 +38,7 @@ export const ContainerNavbar = styled.div`
     }
 
     @media screen and (min-width: 1300px) {
-      width: 80%;
+      width: 90%;
       justify-content: space-between;
     }
   }

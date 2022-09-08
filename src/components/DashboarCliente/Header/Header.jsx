@@ -5,7 +5,11 @@ import { useContext } from "react";
 import { Contexts } from "../../../contexts/provider";
 
 const Header = () => {
-  const { request, handleOpenCart } = useContext(Contexts);
+  const { request, handleOpenCart, setFiltered } = useContext(Contexts);
+
+  const productsFiltered = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <HeaderConteiner>
@@ -17,7 +21,7 @@ const Header = () => {
           </>
         )}
         <button className="cart" onClick={() => handleOpenCart()}>
-          <RiShoppingCartLine size={25} />
+          <RiShoppingCartLine size={37} />
         </button>
       </div>
 
@@ -25,7 +29,12 @@ const Header = () => {
         <button className="lupa">
           <AiOutlineSearch size={20} />
         </button>
-        <input type="text" placeholder="Pesquise aqui..." />
+        <input
+          onSubmit={productsFiltered}
+          type="text"
+          placeholder="Pesquise aqui..."
+          onChange={(e) => setFiltered(e.target.value)}
+        />
       </BarraPesquisa>
     </HeaderConteiner>
   );

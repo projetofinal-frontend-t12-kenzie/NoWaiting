@@ -32,21 +32,15 @@ const RegisterOrder = ({
       mesa: clientRegister.table,
       pedido: request,
     };
-    sendRequest(objOrderComplete);
-    handlePrintInvoice();
-  };
-
-  const onSubmitMobile = () => {
-    const clientRegister = {
-      name,
-      table,
-    };
-    const objOrderComplete = {
-      mesa: clientRegister.table,
-      pedido: request,
-    };
-    sendRequest(objOrderComplete);
-    handlePrintInvoiceMobile();
+    if (
+      objOrderComplete.mesa !== undefined &&
+      objOrderComplete.pedido !== undefined
+    ) {
+      sendRequest(objOrderComplete);
+      handlePrintInvoice();
+    } else {
+      alert("O nome e a mesa são necessários");
+    }
   };
 
   const handleClose = () => {
@@ -101,21 +95,11 @@ const RegisterOrder = ({
           </SpaceBetween>
         </div>
       </div>
-
       <button
         className="send-dashboard"
         type="submit"
         onClick={() => {
           onSubmit();
-        }}
-      >
-        Imprimir
-      </button>
-      <button
-        className="send-mobile"
-        type="submit"
-        onClick={() => {
-          onSubmitMobile();
         }}
       >
         Imprimir
