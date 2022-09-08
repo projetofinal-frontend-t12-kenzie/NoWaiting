@@ -6,13 +6,19 @@ import RegisterOrder from "../InvoiceRegister";
 import { OrderContainer, SpaceBetween } from "./ClientOrders.style";
 
 const Orders = () => {
-  const { request, setRequest, currentAmout, calculatingTotalValue } =
-    useContext(Contexts);
+  const {
+    request,
+    setRequest,
+    currentAmout,
+    calculatingTotalValue,
+    invoice,
+    setInvoice,
+    ordering,
+    setOrderList,
+    registerOrder,
+    setRegisterOrder,
+  } = useContext(Contexts);
   const [tempList, setTempList] = useState([]);
-
-  const [registerOrder, setRegisterOrder] = useState(false);
-  const [ordering, setOrderList] = useState(true);
-  const [invoice, setInvoice] = useState(false);
 
   const handleOrder = (item, action) => {
     if (action === "add") {
@@ -43,23 +49,14 @@ const Orders = () => {
   };
 
   const handleConfirmOrder = () => {
-    setOrderList(false);
-    setTimeout(() => {
-      setRegisterOrder(true);
-    }, 200);
-  };
-
-  const handleConfirmOrderMobile = () => {
-    setOrderList(false);
-    setRegisterOrder(true);
-    setTimeout(() => {
-      const invoiceRegister = document.getElementById("settingInvoice");
-      invoiceRegister.style.display = "block";
-      invoiceRegister.style.position = "absolute";
-      invoiceRegister.style.width = "100%";
-      invoiceRegister.style.height = "100%";
-      console.log(invoiceRegister);
-    }, 200);
+    if (request.length > 0) {
+      setOrderList(false);
+      setTimeout(() => {
+        setRegisterOrder(true);
+      }, 200);
+    } else {
+      alert("Necessário adicionar pedido");
+    }
   };
 
   const handlePrintInvoice = () => {
@@ -67,18 +64,7 @@ const Orders = () => {
     setInvoice(true);
   };
 
-  const handlePrintInvoiceMobile = () => {
-    setRegisterOrder(false);
-    setInvoice(true);
-    setTimeout(() => {
-      const invoice = document.getElementById("invoice-done");
-      invoice.style.display = "block";
-      invoice.style.position = "absolute";
-      invoice.style.width = "100%";
-      invoice.style.height = "100%";
-      console.log(invoice);
-    }, 200);
-  };
+  console.log(request);
 
   return (
     <>
@@ -95,7 +81,6 @@ const Orders = () => {
           setOrderList={setOrderList}
           setInvoice={setInvoice}
           handlePrintInvoice={handlePrintInvoice}
-          handlePrintInvoiceMobile={handlePrintInvoiceMobile}
         />
       )}
       {ordering && (
@@ -105,37 +90,92 @@ const Orders = () => {
               <h2 className="title header">Pedidos</h2>
             </header>
             <ul className="list orders">
-              {request.map((item) => {
-                return (
-                  <li className="order" id={item.id} key={item.id}>
-                    <div className="img">
-                      <img src={item.img} alt={item.name} />
-                    </div>
+              {request.length > 0 ? (
+                request.map((item) => {
+                  return (
+                    <li className="order" id={item.id} key={item.id}>
+                      <div className="img">
+                        <img src={item.img} alt={item.name} />
+                      </div>
 
-                    <div className="description">
-                      <h3 className="description-title">{item.name} </h3>
-                      <span className="price">{`R$ ${item.price}.00`}</span>
-                    </div>
-                    <div className="assests">
-                      <button
-                        className="button add"
-                        id="add"
-                        onClick={(e) => handleOrder(item, e.target.id)}
-                      >
-                        +
-                      </button>
-                      <span className="amount">{item.amount}</span>
-                      <button
-                        className="button less"
-                        id="less"
-                        onClick={(e) => handleOrder(item, e.target.id)}
-                      >
-                        -
-                      </button>
+                      <div className="description">
+                        <h3 className="description-title">{item.name} </h3>
+                        <span className="price">{`R$ ${item.price}.00`}</span>
+                      </div>
+                      <div className="assests">
+                        <button
+                          className="button add"
+                          id="add"
+                          onClick={(e) => handleOrder(item, e.target.id)}
+                        >
+                          +
+                        </button>
+                        <span className="amount">{item.amount}</span>
+                        <button
+                          className="button less"
+                          id="less"
+                          onClick={(e) => handleOrder(item, e.target.id)}
+                        >
+                          -
+                        </button>
+                      </div>
+                    </li>
+                  );
+                })
+              ) : (
+                <>
+                  <li className="ghost">
+                    <div className="ghost img"></div>
+                    <div className="ghost description">
+                      <div className="ghost title"></div>
+                      <div className="ghost config">
+                        <div className="ghost price"></div>
+                        <div className="ghost amount"></div>
+                      </div>
                     </div>
                   </li>
-                );
-              })}
+                  <li className="ghost">
+                    <div className="ghost img"></div>
+                    <div className="ghost description">
+                      <div className="ghost title"></div>
+                      <div className="ghost config">
+                        <div className="ghost price"></div>
+                        <div className="ghost amount"></div>
+                      </div>
+                    </div>
+                  </li>
+                  <li className="ghost">
+                    <div className="ghost img"></div>
+                    <div className="ghost description">
+                      <div className="ghost title"></div>
+                      <div className="ghost config">
+                        <div className="ghost price"></div>
+                        <div className="ghost amount"></div>
+                      </div>
+                    </div>
+                  </li>
+                  <li className="ghost">
+                    <div className="ghost img"></div>
+                    <div className="ghost description">
+                      <div className="ghost title"></div>
+                      <div className="ghost config">
+                        <div className="ghost price"></div>
+                        <div className="ghost amount"></div>
+                      </div>
+                    </div>
+                  </li>
+                  <li className="ghost">
+                    <div className="ghost img"></div>
+                    <div className="ghost description">
+                      <div className="ghost title"></div>
+                      <div className="ghost config">
+                        <div className="ghost price"></div>
+                        <div className="ghost amount"></div>
+                      </div>
+                    </div>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
           <div className="block two">
@@ -172,12 +212,6 @@ const Orders = () => {
             <button
               className="send-dashboard"
               onClick={() => handleConfirmOrder()}
-            >
-              Confirmar pedido
-            </button>
-            <button
-              className="send-mobile"
-              onClick={() => handleConfirmOrderMobile()}
             >
               Confirmar pedido
             </button>

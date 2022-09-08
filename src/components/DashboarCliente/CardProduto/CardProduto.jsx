@@ -62,14 +62,19 @@ const Produtos = () => {
             .map((produto) => (
               <CardProdutos key={produto.id}>
                 <img src={produto.img} alt={produto.name} />
-                <div>
-                  <h3>{produto.name}</h3>
-                  <p>{produto.description}</p>
+                <div className="description">
+                  <h3 className="title">{produto.name}</h3>
+                  <p className="description-product">{produto.description}</p>
                   <span className="categoria">{produto.type}</span>
-                  <span>R$ {produto.price}.00</span>
-                  <button>
-                    <RiShoppingCartLine size={15} />
-                  </button>
+                  <SpaceBetween>
+                    <span className="price">R$ {produto.price}.00</span>
+                    <button
+                      className="cart"
+                      onClick={() => addedproduct(produto)}
+                    >
+                      <RiShoppingCartLine size={20} />
+                    </button>
+                  </SpaceBetween>
                 </div>
               </CardProdutos>
             ))}

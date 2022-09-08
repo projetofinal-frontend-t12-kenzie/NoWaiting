@@ -7,7 +7,10 @@ export const ConfirmeInvoice = styled.div`
   position: relative;
   align-items: center;
 
-  width: 430px;
+  position: absolute;
+
+  width: 100%;
+  height: 100vh;
 
   padding: 10px;
 
@@ -107,6 +110,8 @@ export const ConfirmeInvoice = styled.div`
         }
 
         .description-order-done {
+          width: 224px;
+
           font-weight: 700;
           font-size: 18px;
           line-height: 21px;
@@ -151,8 +156,9 @@ export const ConfirmeInvoice = styled.div`
     }
     .invoice-total {
       display: flex;
-      flex-direction: column;
       justify-content: center;
+      flex-direction: column;
+      position: relative;
       align-items: center;
 
       height: 28%;
@@ -164,15 +170,19 @@ export const ConfirmeInvoice = styled.div`
 
       border-radius: 5px;
       padding: 10px 20px 0 20px;
+
+      gap: 10px;
+
       .total {
         opacity: 60%;
         font-weight: 400;
         line-height: 19px;
         margin-bottom: 10px;
+        font-size: 20px;
       }
 
       .price {
-        font-size: 25px;
+        font-size: 35px;
         font-weight: 400;
         line-height: 19px;
 
@@ -205,5 +215,24 @@ export const ConfirmeInvoice = styled.div`
     color: #fa7b12;
 
     font-size: 16px;
+  }
+
+  @media screen and (min-width: 1000px) {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    position: initial;
+
+    width: 377px;
+    height: 100vh;
+
+    background-color: #141414;
+
+    font-family: "Inter";
+    font-style: normal;
+
+    gap: 15px;
   }
 `;
