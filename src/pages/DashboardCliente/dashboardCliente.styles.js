@@ -31,7 +31,7 @@ export const ContainerDashboard = styled.div`
     overflow: none;
 
     @media screen and (min-width: 750px) {
-      width: 70%;
+      width: 80%;
     }
   }
 `;

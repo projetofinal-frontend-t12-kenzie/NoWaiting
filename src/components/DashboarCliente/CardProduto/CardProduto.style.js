@@ -24,14 +24,14 @@ export const ContainerProdutos = styled.ul`
   }
 
   @media screen and (min-width: 1000px) {
-    width: 100%;
+    width: 64%;
     overflow: hidden;
     padding: 15px 10px 530px 15px;
     flex-wrap: wrap;
   }
 
   @media screen and (min-width: 1300px) {
-    width: 85%;
+    width: 64%;
     overflow: hidden;
 
     flex-wrap: wrap;
