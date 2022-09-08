@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { accountCreated, fail, wellcome } from "../components/Tostify/Toastify.style";
 import api from "../services/api";
 
 export const Contexts = createContext({});
@@ -18,19 +19,16 @@ const ContextsProvider = ({ children }) => {
   const [menu, setMenu] = useState([]);
   const [user, setUser] = useState(null);
   const [filtered, setFiltered] = useState("");
-
   const [orders, setOrders] = useState([]);
   const [request, setRequest] = useState([]);
-
   const [invoice, setInvoice] = useState(false);
   const [ordering, setOrderList] = useState(true);
   const [registerOrder, setRegisterOrder] = useState(false);
-
   const [totalPrice, setTotalPrice] = useState(0);
   const [currentAmout, setCurrent] = useState(InicialInvoice);
   const [concludedOrders, setConcludedOrders] = useState([]);
-
   const [order, setOrder] = useState([]);
+  
   const findOrders = () => {
     api
       .get("/order")
@@ -71,7 +69,9 @@ const ContextsProvider = ({ children }) => {
   async function loginUser(data) {
     const response = await api
       .post("/login", data)
-      .catch((error) => console.log(error));
+      .catch(function (error) {
+        fail();
+      });
     const { accessToken, user } = response.data;
 
     setUser(user);
@@ -84,6 +84,7 @@ const ContextsProvider = ({ children }) => {
       localStorage.setItem("@nowaiting:token", accessToken);
       if (localStorage.getItem("@nowaiting:token") !== null) {
         navigate(toNavigate, { replace: true });
+        wellcome()
       }
     }
   }
@@ -94,8 +95,13 @@ const ContextsProvider = ({ children }) => {
   }
 
   async function registerUser(data) {
-    await api.post("/users", data);
+    await api
+    .post("/users", data)
+    .catch(function (error) {
+      fail();
+    })
     navigate("/login", { replace: true });
+  return accountCreated()
   }
 
   const calculatingTotalValue = () => {
