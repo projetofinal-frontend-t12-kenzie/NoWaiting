@@ -20,8 +20,7 @@ export const ContainerDashboard = styled.div`
     height: 105vh;
   }
   .app {
-    min-width: 60vw;
-    max-width: 100vw;
+    width: 100vw;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -30,7 +29,7 @@ export const ContainerDashboard = styled.div`
 
     overflow: none;
 
-    @media screen and (min-width: 750px) {
+    @media screen and (min-width: 1000px) {
       width: 80%;
     }
   }

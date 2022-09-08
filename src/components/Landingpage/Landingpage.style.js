@@ -100,17 +100,16 @@ export const Clickable = styled.a`
   width: 100%;
 `;
 export const DivSelection = styled.div`
-  height: 100vh;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  @media (min-width: 425px) {
-  }
-  @media (max-width: 425px) {
-    display: flex;
-    flex-direction: column;
-  }
-`;
+height: 100vh;
+width: 100%;
+display: grid;
+grid-template-columns: 1fr;
+@media (min-width:425px){
+grid-template-columns: 1fr;
+}
+@media (min-width:700px){
+grid-template-columns: 1fr 1fr;}
+`
 export const DivRestaurante = styled.div`
   cursor: pointer;
   background-image: url("./assets/restaurante.png");
