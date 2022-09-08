@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <HeaderConteiner>
-      <img src="logo.png" alt="" />
+      <img src="assets/logo_orange.png" alt="logo" />
       <div className="shortcut">
         {request.length > 0 && (
           <>

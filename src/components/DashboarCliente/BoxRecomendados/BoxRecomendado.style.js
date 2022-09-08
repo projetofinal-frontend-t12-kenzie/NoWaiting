@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerRecomendados = styled.section`
-  margin-top: 40px;
+  margin-top: 2vh;
   display: block;
   display: flex;
   align-items: center;
