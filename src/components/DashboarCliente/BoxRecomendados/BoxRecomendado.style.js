@@ -8,6 +8,8 @@ export const ContainerRecomendados = styled.section`
   justify-content: center;
   flex-direction: column;
 
+  margin-bottom: 75px;
+
   @media screen and (min-width: 1000px) {
     top: 43.1rem;
     display: none;
@@ -94,6 +96,11 @@ export const ContainerRecomendados = styled.section`
 
         padding-bottom: 40px;
       }
+    }
+    &:hover {
+      transform: scale(1.02);
+      transition: 0.4s;
+      opacity: 1;
     }
   }
 `;
