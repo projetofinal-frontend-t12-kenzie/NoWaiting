@@ -312,7 +312,7 @@ export const OrderContainer = styled.div`
   @media screen and (min-width: 1000px) {
     display: flex;
     /* display: block; */
-    width: 347px;
+    width: 377px;
     position: initial;
   }
 
