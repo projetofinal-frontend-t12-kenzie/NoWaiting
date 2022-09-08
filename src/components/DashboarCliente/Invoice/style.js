@@ -10,7 +10,7 @@ export const ConfirmeInvoice = styled.div`
   position: absolute;
 
   width: 100%;
-  height: 100vh;
+  min-height: 120%;
 
   padding: 10px;
 

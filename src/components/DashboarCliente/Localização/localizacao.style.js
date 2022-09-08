@@ -6,7 +6,9 @@ export const Localizacao = styled.div`
   justify-content: center;
   flex-direction: column;
   font-family: var(--font);
-  margin-bottom: 34px;
+
+  margin-top: 5px;
+  margin-bottom: 14px;
   height: 60px;
 
   @media screen and (min-width: 1000px) {
@@ -14,14 +16,14 @@ export const Localizacao = styled.div`
   }
 
   h5 {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     color: var(--grey-1);
   }
 
   p {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 700;
     color: var(--grey-0);
   }

@@ -1,26 +1,20 @@
 import styled from "styled-components";
 
 export const ContainerNavbar = styled.div`
-  width: 100%;
   display: flex;
-  align-items: center;
-  flex-direction: row;
   justify-content: center;
+  align-items: center;
 
-  gap: 5px;
-
-  margin-left: 5vh;
-
-  ${(props) => console.log(props.children.props.children)};
+  width: 100%;
 
   .buttons {
-    width: 100%;
+    width: 90%;
     display: flex;
     box-sizing: border-box;
     flex-direction: row;
     white-space: nowrap;
     padding: 10px 0px;
-    gap: 15px;
+    gap: 10px;
     overflow: scroll;
 
     &::-webkit-scrollbar {
@@ -36,7 +30,7 @@ export const ContainerNavbar = styled.div`
     }
 
     @media screen and (min-width: 1300px) {
-      width: 90%;
+      width: 75%;
       justify-content: space-between;
     }
   }
@@ -56,13 +50,13 @@ export const ContainerNavbar = styled.div`
     &:hover {
       background-color: #fa7b12;
       color: #fff;
-      transform: scale(1.2);
-      transition: 1s;
+      transform: scale(1.02);
+      transition: 0.5s;
     }
 
     &:focus {
       background-color: #fa7b12;
-      transform: scale(1.2);
+      transform: scale(1.02);
     }
   }
 `;
