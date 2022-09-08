@@ -6,11 +6,12 @@ export const Pesquisa = styled.div`
   align-items: center;
   justify-content: center;
 
-  height: 70px;
-  width: 100%;
+  height: 10vh;
+  width: 95%;
 
   position: fixed;
   bottom: 0;
+  
 
   background-color: #000;
 

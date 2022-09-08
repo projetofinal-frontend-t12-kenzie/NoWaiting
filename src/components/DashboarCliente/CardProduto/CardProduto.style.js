@@ -24,16 +24,16 @@ export const ContainerProdutos = styled.ul`
   }
 
   @media screen and (min-width: 1000px) {
-    width: 64%;
-    overflow: hidden;
+    display: grid;
+    width: 80%;
     padding: 15px 10px 530px 15px;
+    grid-template-columns: 1fr 1fr 1fr;
     flex-wrap: wrap;
   }
 
-  @media screen and (min-width: 1300px) {
-    width: 64%;
-    overflow: hidden;
-
+  @media screen and (min-width: 1400px) {
+    width: 75%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     flex-wrap: wrap;
   }
 `;

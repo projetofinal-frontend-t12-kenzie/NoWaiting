@@ -7,20 +7,22 @@ export const HeaderConteiner = styled.section`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 5px;
-  margin-top: 2px;
+  margin-bottom: 4vh;
+  margin-top: 2vh;
+  
 
   @media screen and (min-width: 750px) {
-    width: 95%;
+    margin: 2vh 0 3vh 0;
   }
 
   @media screen and (min-width: 1000px) {
-    margin-top: 10px;
+    margin: 2vh 0 3vh 0;
+    padding: 0 6vh 0 0;
   }
 
-  @media screen and (min-width: 1400px) {
-    width: 77%;
-    margin-top: 10px;
+  @media screen and (min-width: 1200px) {
+    margin: 2vh 0 3vh 0;
+    padding: 0 6vh 0 7vh;
   }
 
   h1 {
@@ -30,12 +32,15 @@ export const HeaderConteiner = styled.section`
   }
 
   img {
-    width: 220px;
-    height: 50px;
+    width: 18vh;
+    height: 6vh;
+    padding-left: 3vh;
+
   }
 
   .shortcut {
     position: relative;
+    padding-right: 3vh;
 
     .notification {
       display: flex;
@@ -57,6 +62,7 @@ export const HeaderConteiner = styled.section`
       background-color: #fff;
 
       position: bsolute;
+      margin-right: 3vh;
       /* top:;
     left:; */
 

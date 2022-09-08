@@ -30,8 +30,9 @@ export const OrderContainer = styled.div`
       justify-content: flex-start;
       align-items: center;
 
-      width: 100%;
-      height: 50px;
+      width: 95%;
+      height: 6vh;
+      margin-top: 1vh;
 
       .title.header {
         font-weight: 700;
@@ -46,17 +47,16 @@ export const OrderContainer = styled.div`
       display: flex;
       flex-direction: column;
       align-items: baseline;
-      padding: 0 0 0 27px;
 
       overflow-y: scroll;
 
-      width: 100%;
+      width: 95%;
       height: 400px;
 
       margin-top: 20px;
       margin-bottom: 20px;
 
-      gap: 18px;
+      gap: 2.5vh;
 
       button {
         cursor: pointer;
@@ -291,8 +291,8 @@ export const OrderContainer = styled.div`
   }
 
   .send-dashboard {
-    width: 303px;
-    height: 57px;
+    width: 30vh;
+    height: 5vh;
     left: 1178px;
     top: 900px;
 

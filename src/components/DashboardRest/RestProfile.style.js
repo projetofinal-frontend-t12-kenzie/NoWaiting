@@ -7,12 +7,19 @@ export const RestProfile = styled.div`
   gap: 5px;
 
   img {
-    width: 40px;
+    width: 30px;
+    margin-right: 1vh;
   }
 
   h4 {
     font-family: "Roboto";
-    font-size: 14px;
+    font-size: 18px;
+    padding-right: 3vh;
+    @media screen and (max-width: 426px) {
+    font-family: "Roboto";
+    font-size: 12px;
+    padding-right: 2vh;
+  }
   }
 
   .btnLogOut {
@@ -30,7 +37,11 @@ export const RestProfile = styled.div`
   img {
     height: 45px;
     width: 45px;
-    border-radius: 100%;
+    border-radius: 50%;
+    @media screen and (max-width: 426px) {
+    width: 30px;
+    margin-right: 1vh;
+    border-radius: 50%;
   }
 
   @media screen and (max-width: 426px) {

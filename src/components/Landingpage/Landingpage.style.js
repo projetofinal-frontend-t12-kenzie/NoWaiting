@@ -92,10 +92,12 @@ export const DivSelection = styled.div`
 height: 100vh;
 width: 100%;
 display: grid;
-grid-template-columns: 1fr 1fr;
-@media (min-width:425px){}
+grid-template-columns: 1fr;
+@media (min-width:425px){
+grid-template-columns: 1fr;
+}
 @media (min-width:700px){
-flex-direction: row;}
+grid-template-columns: 1fr 1fr;}
 `
 export const DivRestaurante = styled.div`
 cursor: pointer;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerNavbar = styled.div`
-  width: 84%;
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -9,7 +9,7 @@ export const ContainerNavbar = styled.div`
 
   gap: 5px;
 
-  margin-left: 15px;
+  margin-left: 5vh;
 
   ${(props) => console.log(props.children.props.children)};
 
@@ -28,12 +28,10 @@ export const ContainerNavbar = styled.div`
     }
 
     @media screen and (min-width: 750px) {
-      justify-content: space-evenly;
-      width: 84%;
+      /* justify-content: space-evenly; */
     }
 
     @media screen and (min-width: 1000px) {
-      width: 100%;
       overflow: hidden;
     }
 
