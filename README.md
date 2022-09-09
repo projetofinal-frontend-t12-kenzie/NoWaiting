@@ -24,7 +24,7 @@ Nossa aplicação seria um garçom/garçonete digital com diversas línguas disp
     
     1. Features do Front:
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/05d79560-8172-442d-86fe-f138be4b64f4/Untitled.png)
+    https://www.notion.so/Planejamento-860755ecf7af4433abb900d19c9487d3#fa68f8d27bc5431790fea87f716e4631
     
 
 - Quais as bibliotecas que serão utilizadas pela equipe ?
